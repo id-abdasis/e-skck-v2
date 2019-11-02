@@ -17,3 +17,6 @@ Route::get('/', function () {
 
 
 Route::get('/pendaftaran-skck', 'SkckController@pendaftaran')->name('pendaftaran-skck');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

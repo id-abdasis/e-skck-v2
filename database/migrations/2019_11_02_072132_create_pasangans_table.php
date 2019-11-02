@@ -15,6 +15,17 @@ class CreatePasangansTable extends Migration
     {
         Schema::create('pasangans', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('status_pasangan', 20);
+            $table->string('nama_lengkap_pasangan', 100);
+            $table->string('umur_pasangan', 4);
+            $table->string('agama_pasnagan', 100);
+            $table->string('pekerjaan_pasangan', 100);
+            $table->string('jenis_kelamin_pasangan', 20);
+            $table->string('provinsi_pasangan', 100);
+            $table->string('kabupaten_pasangan', 100);
+            $table->string('kecamatan_pasangan', 100);
+            $table->string('kelurahan_pasangan', 100);
+            $table->string('alamat_pasangan', 100);
             $table->timestamps();
         });
     }

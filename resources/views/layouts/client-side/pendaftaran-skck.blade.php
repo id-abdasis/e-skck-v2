@@ -14,7 +14,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <!-- Validation Wizard Classic -->
-            <div class="js-wizard-validation-classic block" id="">
+            <div class="block" id="js-wizard-validation-classic ">
                 <!-- Step Tabs -->
                 <ul class="nav nav-tabs nav-tabs-block nav-fill" role="tablist">
                     <li class="nav-item">
@@ -45,7 +45,7 @@
                 <!-- END Step Tabs -->
 
                 <!-- Form -->
-                <form class="js-wizard-validation-classic-form" id="" action="be_forms_wizard.html" method="post">
+                <form class="" id="js-wizard-validation-classic-form" action="be_forms_wizard.html" method="post">
                     <!-- Steps Content -->
                     @csrf
                     <div class="block-content block-content-full tab-content" style="min-height: 265px;">
@@ -362,21 +362,18 @@
         
                                 <h5>B. Data Ayah</h5>
                                 <div class="form-row">
-                                    <div class="form-group col-md-7">
+                                    <div class="form-group col-md-12">
                                         <label for="nama_lengkap_ayah">Nama Lengkap</label>
                                         <input required type="text" placeholder="Masukan Nama Lengkap ayah" class="form-control" name="nama_lengkap_ayah" id="nama_lengkap_ayah" value="{{ old('tempat_lahir_ayah') }}" >    
                                     </div>
     
-                                    <div class="form-group col-md-5">
-                                        <label for="umur">Umur</label>
-                                        <input required type="text" placeholder="Umur ayah" class="form-control" name="umur_ayah" id="umur_ayah" value="{{ old('umur_ayah') }}" >    
-                                    </div>
+                                   
                                 </div>
                                         
             
             
                                 <div class="form-row">
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-3">
                                         <label for="agama_ayah">Agama</label>
                                         <select name="agama_ayah" id="agama_ayah" class="form-control">
                                             <option value="">Pilih Agama</option>
@@ -390,26 +387,17 @@
                                         </select>
                                     </div>
     
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-7">
                                         <label for="pekerjaan_ayah">Pekerjaan</label>
                                         <input class="form-control" type="text" name="pekerjaan_ayah" value="{{ old('pekerjaan_ayah') }}" placeholder="Masukan Pekerjaan Anda">
                                     </div>
+
+
+                                    <div class="form-group col-md-2">
+                                            <label for="umur">Umur</label>
+                                            <input required type="text" placeholder="Umur ayah" class="form-control" name="umur_ayah" id="umur_ayah" value="{{ old('umur_ayah') }}" >    
+                                        </div>
     
-                                    <div class="form-group col-md-4 m-0 p-0">
-                                        <div class="col-md-12  m-2 p-0">
-                                            <label for="">Jenis Kelamin</label>
-                                        </div>
-                                        <div class="col-md-12  m-2 p-0">
-                                            <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                <input class="custom-control-input" type="radio" name="jenis_kelamin_ayah" id="laki-laki-ayah" value="Laki-Laki" checked="">
-                                                <label class="custom-control-label" for="laki-laki-ayah">Laki-Laki</label>
-                                            </div>
-                                            <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                <input class="custom-control-input" type="radio" name="jenis_kelamin_ayah" id="perempuan-ayah" value="Perempuan">
-                                                <label class="custom-control-label" for="perempuan-ayah">Perempuan</label>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
             
             
@@ -449,21 +437,17 @@
     
                                 <h5>B. Data Ibu</h5>
                                 <div class="form-row">
-                                    <div class="form-group col-md-7">
+                                    <div class="form-group col-md-12">
                                         <label for="nama_lengkap_ibu">Nama Lengkap</label>
                                         <input required type="text" placeholder="Masukan Nama Lengkap ibu" class="form-control" name="nama_lengkap_ibu" id="nama_lengkap_ibu" value="{{ old('tempat_lahir_ibu') }}" >    
                                     </div>
     
-                                    <div class="form-group col-md-5">
-                                        <label for="umur">Umur</label>
-                                        <input required type="text" placeholder="Umur ibu" class="form-control" name="umur_ibu" id="umur_ibu" value="{{ old('umur_ibu') }}" >    
-                                    </div>
                                 </div>
                                         
             
             
                                 <div class="form-row">
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-3">
                                         <label for="agama_ibu">Agama</label>
                                         <select name="agama_ibu" id="agama_ibu" class="form-control">
                                             <option value="">Pilih Agama</option>
@@ -477,25 +461,14 @@
                                         </select>
                                     </div>
     
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-7">
                                         <label for="pekerjaan_ibu">Pekerjaan</label>
                                         <input class="form-control" type="text" name="pekerjaan_ibu" value="{{ old('pekerjaan_ibu') }}" placeholder="Masukan Pekerjaan Anda">
                                     </div>
-    
-                                    <div class="form-group col-md-4 m-0 p-0">
-                                        <div class="col-md-12  m-2 p-0">
-                                            <label for="">Jenis Kelamin</label>
-                                        </div>
-                                        <div class="col-md-12  m-2 p-0">
-                                            <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                <input class="custom-control-input" type="radio" name="jenis_kelamin_ibu" id="laki-laki-ibu" value="Laki-Laki" checked="">
-                                                <label class="custom-control-label" for="laki-laki-ibu">Laki-Laki</label>
-                                            </div>
-                                            <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                <input class="custom-control-input" type="radio" name="jenis_kelamin_ibu" id="perempuan-ibu" value="Perempuan">
-                                                <label class="custom-control-label" for="perempuan-ibu">Perempuan</label>
-                                            </div>
-                                        </div>
+
+                                    <div class="form-group col-md-2">
+                                        <label for="umur">Umur</label>
+                                        <input required type="text" placeholder="Umur ibu" class="form-control" name="umur_ibu" id="umur_ibu" value="{{ old('umur_ibu') }}" >    
                                     </div>
                                 </div>
         
@@ -536,21 +509,18 @@
     
                                 <h5>B. Data Saudara</h5>
                                 <div class="form-row">
-                                    <div class="form-group col-md-7">
+                                    <div class="form-group col-md-12">
                                         <label for="nama_lengkap_saudara">Nama Lengkap</label>
                                         <input required type="text" placeholder="Masukan Nama Lengkap saudara" class="form-control" name="nama_lengkap_saudara" id="nama_lengkap_saudara" value="{{ old('tempat_lahir_saudara') }}" >    
                                     </div>
     
-                                    <div class="form-group col-md-5">
-                                        <label for="umur">Umur</label>
-                                        <input required type="text" placeholder="Umur saudara" class="form-control" name="umur_saudara" id="umur_saudara" value="{{ old('umur_saudara') }}" >    
-                                    </div>
+                                    
                                 </div>
                                     
             
             
                                 <div class="form-row">
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-3">
                                         <label for="agama_saudara">Agama</label>
                                         <select name="agama_saudara" id="agama_saudara" class="form-control">
                                             <option value="">Pilih Agama</option>
@@ -564,25 +534,14 @@
                                         </select>
                                     </div>
     
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-7">
                                         <label for="pekerjaan_saudara">Pekerjaan</label>
                                         <input class="form-control" type="text" name="pekerjaan_saudara" value="{{ old('pekerjaan_saudara') }}" placeholder="Masukan Pekerjaan Anda">
                                     </div>
     
-                                    <div class="form-group col-md-4 m-0 p-0">
-                                        <div class="col-md-12  m-2 p-0">
-                                            <label for="">Jenis Kelamin</label>
-                                        </div>
-                                        <div class="col-md-12  m-2 p-0">
-                                            <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                <input class="custom-control-input" type="radio" name="jenis_kelamin_saudara" id="laki-laki-saudara" value="Laki-Laki" checked="">
-                                                <label class="custom-control-label" for="laki-laki-saudara">Laki-Laki</label>
-                                            </div>
-                                            <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                <input class="custom-control-input" type="radio" name="jenis_kelamin_saudara" id="perempuan-saudara" value="Perempuan">
-                                                <label class="custom-control-label" for="perempuan-saudara">Perempuan</label>
-                                            </div>
-                                        </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="umur">Umur</label>
+                                        <input required type="text" placeholder="Umur saudara" class="form-control" name="umur_saudara" id="umur_saudara" value="{{ old('umur_saudara') }}" >    
                                     </div>
                                 </div>
         
@@ -688,11 +647,11 @@
                                 <div class="form-group col-md-12 m-0 p-0">
                                     <div class="col-md-12  m-0 p-0">
                                         <div class="custom-control custom-radio custom-control-inline mb-5">
-                                            <input class="custom-control-input" type="radio" name="perkara_pidana" id="pernah-pidana" value="Pernah" checked="">
+                                            <input class="custom-control-input" type="radio" name="perkara_pidana" id="pernah_pidana" value="Pernah" checked="">
                                             <label class="custom-control-label" for="pernah-pidana">Pernah</label>
                                         </div>
                                         <div class="custom-control custom-radio custom-control-inline mb-5">
-                                            <input class="custom-control-input" type="radio" name="perkara_pidana-pidana" id="tidak_pernah" value="Tidak Pernah">
+                                            <input class="custom-control-input" type="radio" name="perkara_pidana" id="tidak_pernah_pidana" value="Tidak Pernah">
                                             <label class="custom-control-label" for="tidak-pernah-pidana">Tidak Pernah</label>
                                         </div>
                                     </div>
@@ -701,9 +660,6 @@
                                     <div class="form-group mb-3">
                                         <label for="">Dalam Perkara Apa?</label>
                                         <input required maxlength="100" id="defaultconfig" name="perkara" type="text" class="form-control">
-                                        <div class="invalid-feedback">
-                                            * Data Perkara Wajib Diisi
-                                        </div>
                                     </div>
     
                                     <div class="form-group mb-3">

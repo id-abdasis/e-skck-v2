@@ -15,6 +15,14 @@ class CreateIbusTable extends Migration
     {
         Schema::create('ibus', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nama_lengkap_ibu', 100);
+            $table->string('agama_ibu', 30);
+            $table->string('pekerjaan_ibu', 100);
+            $table->string('umur_ibu', 100);
+            $table->string('provinsi_ibu', 100);
+            $table->string('kabupaten_ibu', 100);
+            $table->string('kecamatan_ibu', 100);
+            $table->string('alamat_ibu', 250);
             $table->timestamps();
         });
     }

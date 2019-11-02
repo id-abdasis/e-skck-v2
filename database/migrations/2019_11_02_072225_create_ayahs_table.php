@@ -15,6 +15,14 @@ class CreateAyahsTable extends Migration
     {
         Schema::create('ayahs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nama_lengkap_ayah', 100);
+            $table->string('agama_ayah', 30);
+            $table->string('pekerjaan_ayah', 100);
+            $table->string('umur_ayah', 100);
+            $table->string('provinsi_ayah', 100);
+            $table->string('kabupaten_ayah', 100);
+            $table->string('kecamatan_ayah', 100);
+            $table->string('alamat_ayah', 250);
             $table->timestamps();
         });
     }

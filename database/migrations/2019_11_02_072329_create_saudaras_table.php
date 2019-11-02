@@ -15,6 +15,14 @@ class CreateSaudarasTable extends Migration
     {
         Schema::create('saudaras', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nama_lengkap_saudara', 100);
+            $table->string('agama_saudara', 30);
+            $table->string('pekerjaan_saudara', 100);
+            $table->string('umur_saudara', 100);
+            $table->string('provinsi_saudara', 100);
+            $table->string('kabupaten_saudara', 100);
+            $table->string('kecamatan_saudara', 100);
+            $table->string('alamat_saudara', 250);
             $table->timestamps();
         });
     }

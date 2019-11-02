@@ -15,6 +15,11 @@ class CreateLampiransTable extends Migration
     {
         Schema::create('lampirans', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('ktp', 100)->nullable()->default('Belum upload');
+            $table->string('paspor', 100)->nullable()->default('Belum upload');
+            $table->string('kartu_keluarga', 100)->nullable()->default('Belum upload');
+            $table->string('akte', 100)->nullable()->default('Belum upload');   
+            $table->string('sidik_jari', 100)->nullable()->default('Belum upload');
             $table->timestamps();
         });
     }

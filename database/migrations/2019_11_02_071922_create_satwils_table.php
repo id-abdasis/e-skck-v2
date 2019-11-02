@@ -15,6 +15,13 @@ class CreateSatwilsTable extends Migration
     {
         Schema::create('satwils', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('keperluan', 250);
+            $table->string('alamat_satwil', 100);
+            $table->string('provinsi_satwil', 100);
+            $table->string('kabupaten_satwil', 100);
+            $table->string('kecamatan_satwil', 100);
+            $table->string('kelurahan_satwil', 100);
+            $table->string('pembayaran_satwil', 100);
             $table->timestamps();
         });
     }
