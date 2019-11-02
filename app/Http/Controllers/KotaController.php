@@ -19,7 +19,7 @@ class KotaController extends Controller
         $kabupaten = file_get_contents($api_kabupaten);
         $r_kabupaten = json_decode($kabupaten);
         foreach ($r_kabupaten->kabupatens as $data) {
-            echo '<option value="' . $data->id . $data->nama . '">' . $data->nama . '</option>';
+            echo '<option value="' . $data->id . '|' . $data->nama . '">' . $data->nama . '</option>';
         }
 
     }
@@ -30,7 +30,7 @@ class KotaController extends Controller
         $kecamatan = file_get_contents($api_kecamatan);
         $r_kecamatan = json_decode($kecamatan);
         foreach ($r_kecamatan->kecamatans as $data) {
-            echo '<option  value="' . $data->id . $data->nama . '">' . $data->nama . '</option>';
+            echo '<option  value="' . $data->id . '|' .$data->nama . '">' . $data->nama . '</option>';
         }
     }
 
@@ -40,7 +40,7 @@ class KotaController extends Controller
         $kelurahan = file_get_contents($kelurahan);
         $r_kelurahan = json_decode($kelurahan);
         foreach ($r_kelurahan->desas as $data) {
-            echo '<option value="' . $data->id . $data->nama . '">' . $data->nama . '</option>';
+            echo '<option value="' . $data->id . '|' .$data->nama . '">' . $data->nama . '</option>';
         }
     }
 }

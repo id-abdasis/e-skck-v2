@@ -22,6 +22,7 @@ class CreateSatwilsTable extends Migration
             $table->string('kecamatan_satwil', 100);
             $table->string('kelurahan_satwil', 100);
             $table->string('pembayaran_satwil', 100);
+            $table->longText('kode_unik');
             $table->timestamps();
         });
     }

@@ -18,7 +18,7 @@ class CreatePasangansTable extends Migration
             $table->string('status_pasangan', 20);
             $table->string('nama_lengkap_pasangan', 100);
             $table->string('umur_pasangan', 4);
-            $table->string('agama_pasnagan', 100);
+            $table->string('agama_pasangan', 100);
             $table->string('pekerjaan_pasangan', 100);
             $table->string('jenis_kelamin_pasangan', 20);
             $table->string('provinsi_pasangan', 100);

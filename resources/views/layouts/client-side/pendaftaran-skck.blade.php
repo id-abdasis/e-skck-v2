@@ -14,7 +14,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <!-- Validation Wizard Classic -->
-            <div class="block" id="js-wizard-validation-classic ">
+            <div class="js-wizard-validation-classic block" id="">
                 <!-- Step Tabs -->
                 <ul class="nav nav-tabs nav-tabs-block nav-fill" role="tablist">
                     <li class="nav-item">
@@ -45,7 +45,7 @@
                 <!-- END Step Tabs -->
 
                 <!-- Form -->
-                <form class="" id="js-wizard-validation-classic-form" action="be_forms_wizard.html" method="post">
+                <form class="js-wizard-validation-classic-form" enctype="multipart/form-data" id="" action="{{ route('store-skck')}}" method="post">
                     <!-- Steps Content -->
                     @csrf
                     <div class="block-content block-content-full tab-content" style="min-height: 265px;">
@@ -60,8 +60,8 @@
                                     </select>                            
                                 </div>
                                 <div class="form-group">
-                                    <label for="alamat_sawtil">Alamat (Sesuai KTP)</label>
-                                    <textarea class="form-control" type="text" rows="5" id="alamat_sawtil" name="alamat_sawtil" required></textarea>
+                                    <label for="alamat_satwil">Alamat (Sesuai KTP)</label>
+                                    <textarea class="form-control" type="text" rows="5" id="alamat_satwil" name="alamat_satwil" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="provinsi_satwil">Provinsi</label>
@@ -279,7 +279,7 @@
             
                                     <div class="form-group col-md-7">
                                         <label for="nama_lengkap_pasangan">Nama Lengkap</label>
-                                        <input required type="text" placeholder="Masukan Nama Lengkap Pasangan" class="form-control" name="nama_lengkap_pasangan" id="nama_lengkap_pasangan" value="{{ old('tempat_lahir_pasangan') }}" >    
+                                        <input focused required type="text" placeholder="Masukan Nama Lengkap Pasangan" class="form-control" name="nama_lengkap_pasangan" id="nama_lengkap_pasangan" value="{{ old('tempat_lahir_pasangan') }}" >    
                                     </div>
     
                                     <div class="form-group col-md-2">
@@ -292,7 +292,7 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="agama_pasangan">Agama</label>
-                                        <select name="agama_pasangan" id="agama_pasangan" class="form-control">
+                                        <select required name="agama_pasangan" id="agama_pasangan" class="form-control">
                                             <option value="">Pilih Agama</option>
                                             <option value="Islam">Islam</option>
                                             <option value="Kristen">Kristen</option>
@@ -648,23 +648,23 @@
                                     <div class="col-md-12  m-0 p-0">
                                         <div class="custom-control custom-radio custom-control-inline mb-5">
                                             <input class="custom-control-input" type="radio" name="perkara_pidana" id="pernah_pidana" value="Pernah" checked="">
-                                            <label class="custom-control-label" for="pernah-pidana">Pernah</label>
+                                            <label class="custom-control-label" for="pernah_pidana">Pernah</label>
                                         </div>
                                         <div class="custom-control custom-radio custom-control-inline mb-5">
                                             <input class="custom-control-input" type="radio" name="perkara_pidana" id="tidak_pernah_pidana" value="Tidak Pernah">
-                                            <label class="custom-control-label" for="tidak-pernah-pidana">Tidak Pernah</label>
+                                            <label class="custom-control-label" for="tidak_pernah_pidana">Tidak Pernah</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div id="pidana">
                                     <div class="form-group mb-3">
                                         <label for="">Dalam Perkara Apa?</label>
-                                        <input required maxlength="100" id="defaultconfig" name="perkara" type="text" class="form-control">
+                                        <input required maxlength="100" name="perkara" type="text" class="form-control">
                                     </div>
     
                                     <div class="form-group mb-3">
                                         <label for="">Bagaimana putusan dan vonis hakim?</label>
-                                        <input required maxlength="200" id="defaultconfig" name="vonis" type="text" class="form-control">
+                                        <input required maxlength="200" name="vonis" type="text" class="form-control">
                                         <div class="invalid-feedback">
                                             * Keputusan Vonis Harus Diisi
                                         </div>
@@ -672,7 +672,7 @@
     
                                     <div class="form-group mb-3">
                                         <label for="">Apakah saudara saat ini sedang dalam proses perkara pidana ? Kasus apa ?</label>
-                                        <input required maxlength="100" id="defaultconfig" name="proses_perkara" type="text" class="form-control">
+                                        <input required maxlength="100" name="proses_perkara" type="text" class="form-control">
                                         <div class="invalid-feedback">
                                             * Data Perkara Wajib Diisi
                                         </div>
@@ -680,7 +680,7 @@
     
                                     <div class="form-group mb-3">
                                         <label for="">Sampai sejauh mana proses hukumnya?</label>
-                                        <input required maxlength="200" id="defaultconfig" name="hukuman" type="text" class="form-control">
+                                        <input required maxlength="200" name="hukuman" type="text" class="form-control">
                                         <div class="invalid-feedback">
                                             *  Proses Hukum Wajib Diisi
                                         </div>
@@ -695,12 +695,12 @@
                                     <div class="form-group col-md-12 m-0 p-0">
                                         <div class="col-md-12  m-0 p-0">
                                             <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                <input class="custom-control-input" type="radio" name="perkara_pelanggaran" id="pernah-pelanggaran" value="Pernah" checked="">
-                                                <label class="custom-control-label" for="pernah-pelanggaran">Pernah</label>
+                                                <input class="custom-control-input" type="radio" name="perkara_pelanggaran" id="pernah_pelanggaran" value="Pernah" checked="">
+                                                <label class="custom-control-label" for="pernah_pelanggaran">Pernah</label>
                                             </div>
                                             <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                <input class="custom-control-input" type="radio" name="perkara_pelanggaran" id="tidak_pernah-pelanggaran" value="Tidak Pernah">
-                                                <label class="custom-control-label" for="tidak-pernah-pelanggaran">Tidak Pernah</label>
+                                                <input class="custom-control-input" type="radio" name="perkara_pelanggaran" id="tidak_pernah_pelanggaran" value="Tidak Pernah">
+                                                <label class="custom-control-label" for="tidak_pernah_pelanggaran">Tidak Pernah</label>
                                             </div>
                                         </div>
                                     </div>
@@ -708,12 +708,12 @@
                                 <div id="pelanggaran">
                                     <div class="form-group mb-3">
                                         <label for="">Pelanggaran hukum atau norma-norma sosial apa ?</label>
-                                        <input required id="defaultconfig" maxlength="100" name="jenis_pelanggaran" type="text" class="form-control">
+                                        <input required maxlength="100" name="jenis_pelanggaran" type="text" class="form-control">
                                     </div>
     
                                     <div class="form-group mb-3">
                                         <label for="">Sampai sejauh mana prosesnya?</label>
-                                        <input required id="defaultconfig" maxlength="100" name="proses_pelanggaran" type="text" class="form-control">
+                                        <input required maxlength="100" name="proses_pelanggaran" type="text" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -724,7 +724,7 @@
                                 <h2>Ciri Ciri Fisik</h2>
                                 <div class="form-group">
                                     <label for="rambut" lang="id">Rambut</label>
-                                    <input required="" id="defaultconfig" maxlength="50" type="text" class="form-control input required" name="rambut">
+                                    <input required="" maxlength="50" type="text" class="form-control input required" name="rambut">
                                     <div class="invalid-feedback">
                                         * Ciri-ciri rambut wajib diisi
                                     </div>
@@ -732,7 +732,7 @@
 
                                 <div class="form-group">
                                     <label for="wajah" lang="id">Wajah</label>
-                                    <input required="" maxlength="100" type="text" class="form-control" name="wajah" id="defaultconfig">
+                                    <input required="" maxlength="100" type="text" class="form-control" name="wajah">
                                     <div class="invalid-feedback">
                                         * Ciri-ciri wajah wajib diisi
                                     </div>
@@ -740,7 +740,7 @@
 
                                 <div class="form-group">
                                     <label for="kulit" lang="id">Kulit</label>
-                                    <input required="" maxlength="50" type="text" class="form-control" name="kulit" id="defaultconfig">
+                                    <input required="" maxlength="50" type="text" class="form-control" name="kulit">
                                     <div class="invalid-feedback">
                                         * Ciri-ciri kulit wajib diisi
                                     </div>
@@ -748,7 +748,7 @@
 
                                 <div class="form-group">
                                     <label for="tandaistimewa" lang="id">Tanda Istimewa</label>
-                                    <input required="" maxlength="100" type="text" class="form-control" name="tandaistimewa" id="defaultconfig">
+                                    <input required="" maxlength="100" type="text" class="form-control" name="tandaistimewa">
                                     <div class="invalid-feedback">
                                         * Ciri-ciri tanda istimewa wajib diisi
                                     </div>
@@ -758,7 +758,7 @@
                                     <div class="form-group col-md-6">
                                         <label for="">Tinggi Badan</label>
                                         <div class="input-group mb-2">
-                                            <input required="" maxlength="3" id="defaultconfig" name="tinggi_badan" type="text" class="form-control" placeholder="Tinggi Badan">
+                                            <input required="" maxlength="3" name="tinggi_badan" type="text" class="form-control" placeholder="Tinggi Badan">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">cm</div>
                                             </div>
@@ -767,7 +767,7 @@
                                     <div class="form-group col-md-6">
                                         <label for="">Berat Badan</label>
                                         <div class="input-group mb-2">
-                                            <input required="" maxlength="3" name="berat_badan" type="text" class="form-control" id="defaultconfig" placeholder="Berat Badan">
+                                            <input required="" maxlength="3" name="berat_badan" type="text" class="form-control" placeholder="Berat Badan">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">kg</div>
                                             </div>
@@ -782,12 +782,12 @@
                                     
                                     <div class="form-group col-md-6">
                                         <label for="rumusjari" lang="id">Rumus Sidik Jari (kiri)</label>
-                                        <input required="" maxlength="20" type="text" class="form-control" name="rumus_jari_kiri" id="defaultconfig">
+                                        <input required="" maxlength="20" type="text" class="form-control" name="rumus_jari_kiri">
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label for="rumusjari" lang="id">Rumus Sidik Jari (kanan)</label>
-                                        <input required="" maxlength="20" type="text" class="form-control " name="rumus_jari_kanan" id="defaultconfig">
+                                        <input required="" maxlength="20" type="text" class="form-control " name="rumus_jari_kanan">
                                     </div>
                                 </div>
                             </div>

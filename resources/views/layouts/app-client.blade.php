@@ -38,6 +38,8 @@
 </head>
 
 <body>
+        @include('sweetalert::alert')
+
     <div id="page-container" class="sidebar-inverse side-scroll page-header-fixed page-header-inverse main-content-boxed">
 
         <!-- Sidebar -->
