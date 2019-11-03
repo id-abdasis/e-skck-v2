@@ -416,7 +416,6 @@ $(document).ready(function() {
             success: function(data) {
                 $('#kabupaten_ibu').html(data)
                 $('#kabupaten_ibu').prepend('<option selected>Pilih Kabupaten</option>')
-
             },
 
         })
@@ -644,7 +643,5 @@ $(document).ready(function() {
         postText: ' Karakter.',
         validate: true
     });
-
-
 
 })

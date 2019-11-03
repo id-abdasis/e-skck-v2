@@ -115,4 +115,21 @@ class SkckController extends Controller
             return redirect('/login');
         }
     }
+
+    public function template()
+    {
+        return view('layouts.admin-side.template');
+    }
+
+    public function detail_pendaftar($id)
+    {
+        $biodata  = Pribadi::find($id);
+        return view('layouts.admin-side.skck.detail-skck')->with(['biodata' => $biodata]);
+    }
+
+    public function sunting_pendaftar($id)
+    {
+        $biodata = Pribadi::find($id);
+        return view('layouts.admin-side.skck.edit-skck')->with(['biodata' => $biodata]);
+    }
 }
