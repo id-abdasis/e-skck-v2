@@ -21,6 +21,7 @@
                 </tr>
             </thead>
             <tbody>
+                @include('includes.alert')
                 @foreach ($users as $key=>$user)
                 <tr>
                     <td class="text-center">{{ ($key+1) }}</td>
@@ -32,6 +33,11 @@
                         <button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="View Customer">
                             <i class="fa fa-user"></i>
                         </button>
+                        <a href="{{ route('user.hapus-user', $user->id) }}">
+                            <button type="button" class="btn btn-sm btn-danger" data-toggle="tooltip" title="View Customer">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </a>
                     </td>
                 </tr>
                 @endforeach

@@ -25,6 +25,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
         Route::get('/' , 'UserController@index')->name('daftar-user');
         Route::get('/tambah-user' , 'UserController@tambah_user')->name('user.tambah-user');
+        Route::post('/store-user' , 'UserController@store_user')->name('user.store-user');
+        Route::get('/hapus-user/{id}' , 'UserController@hapus_user')->name('user.hapus-user');
     });
 });
 

@@ -30,6 +30,7 @@
         <!-- Fonts and Codebase framework -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,400i,600,700">
         <link rel="stylesheet" id="css-main" href="{{ url('/') }}/assets/css/codebase.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.19.0/dist/sweetalert2.all.min.js"></script>
         @yield('plugin-css')
         <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
         <!-- <link rel="stylesheet" id="css-theme" href="{{ url('/') }}/assets/css/themes/flat.min.css"> -->
@@ -37,8 +38,6 @@
     </head>
     <body>
         @include('sweetalert::alert')
-
-       
         <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-modern main-content-boxed">
             <!-- Side Overlay-->
             {{-- <aside id="side-overlay">

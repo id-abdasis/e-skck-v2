@@ -38,8 +38,7 @@
 </head>
 
 <body>
-        @include('sweetalert::alert')
-
+    @include('sweetalert::alert')
     <div id="page-container" class="sidebar-inverse side-scroll page-header-fixed page-header-inverse main-content-boxed">
 
         <!-- Sidebar -->
@@ -81,6 +80,7 @@
     <!-- Page JS Code -->
     <script src="{{ url('/') }}/assets/js/pages/be_pages_dashboard.min.js"></script>
     @yield('page-js')
+
 </body>
 
 </html>

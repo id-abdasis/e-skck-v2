@@ -61,5 +61,4 @@
     </div>
     <!-- END Bootstrap Register -->
 </div>
-
 @endsection

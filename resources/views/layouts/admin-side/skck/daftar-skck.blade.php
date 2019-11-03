@@ -33,9 +33,7 @@
                         <span class="badge badge-success">{{ $skck->satwil['kode_unik'] }}</span>
                     </td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="View Customer">
-                            <i class="fa fa-user"></i>
-                        </button>
+                       
                     </td>
                 </tr>
                 @endforeach
