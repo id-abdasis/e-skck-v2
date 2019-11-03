@@ -22,7 +22,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('sunting-template', 'SkckController@template')->name('template');
     Route::post('update-templaet', 'SkckController@update_template')->name('update-template');
     Route::get('detail-pendaftar/{id}/profile', 'SkckController@detail_pendaftar')->name('detail');
+    Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
+        Route::get('/' , 'UserController@index')->name('daftar-user');
+        Route::get('/tambah-user' , 'UserController@tambah_user')->name('user.tambah-user');
+    });
 });
+
+
 
 Route::get('/pendaftaran-skck', 'SkckController@pendaftaran')->name('pendaftaran-skck');
 Route::post('/pendaftaran-skck', 'SkckController@store_skck')->name('store-skck');
