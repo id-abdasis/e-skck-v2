@@ -33,7 +33,28 @@
                         <span class="badge badge-success">{{ $skck->satwil['kode_unik'] }}</span>
                     </td>
                     <td class="text-center">
-                       
+                        <a href="{{ route('detail', $skck->id) }}">
+                            <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="tooltip" title="Detail Pendaftar">
+                                <i class="fa fa-user"></i>
+                            </button>
+                        </a>
+                        <a href="{{ route('sunting-pendaftar', $skck->id) }}">
+                            <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="tooltip" title="Sunting Pendaftar">
+                                <i class="fa fa-pencil"></i>
+                            </button>
+                        </a>
+
+                        <a href="{{ route('hapus-pendaftar', $skck->id) }}">
+                            <button type="button" id="btn-hapus" class="btn btn-sm btn-alt-danger" data-toggle="tooltip" title="Hapus Pendaftar">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </a>
+
+                        <a href="{{ route('print-pendaftar', $skck->id) }}">
+                            <button type="button" class="btn btn-sm btn-alt-info" data-toggle="tooltip" title="Hapus Pendaftar">
+                                <i class="fa fa-print"></i>
+                            </button>
+                        </a>
                     </td>
                 </tr>
                 @endforeach

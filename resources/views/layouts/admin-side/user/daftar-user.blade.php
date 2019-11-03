@@ -30,11 +30,11 @@
                     <td class="d-none d-sm-table-cell">{{ $user->email }}</td>
                     <td class="d-none d-sm-table-cell">{{ 'Diamankan' }}</td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="View Customer">
-                            <i class="fa fa-user"></i>
+                        <button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit Pengguna">
+                            <i class="fa fa-pencil"></i>
                         </button>
-                        <a href="{{ route('user.hapus-user', $user->id) }}">
-                            <button type="button" class="btn btn-sm btn-danger" data-toggle="tooltip" title="View Customer">
+                        <a href="{{ route('user.hapus-user', $user->id) }}" onclick="alertHapus()">
+                            <button type="button" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Hapus Data">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </a>
@@ -51,7 +51,12 @@
     <!-- Page JS Plugins -->
     <script src="{{ url('/') }}/assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="{{ url('/') }}/assets/js/plugins/datatables/dataTables.bootstrap4.min.js"></script>
-
+    <script src="{{ url('/') }}/assets/js/creative.js"></script>
+    <script>
+        function alertHapus() {
+            confirm('Apakah Anda yakin mau menghapus data ini?');
+        }
+    </script>
 @endsection
 
 @section('page-js')

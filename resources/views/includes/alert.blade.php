@@ -17,3 +17,13 @@
     )
     </script>
 @endif
+
+@if (Session::has('hapus-pendaftar'))
+<script>
+    Swal.fire(
+        'Berhasil',
+        'Data Berhasil Di Hapus',
+        'success'
+    )
+    </script>
+@endif

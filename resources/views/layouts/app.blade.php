@@ -37,6 +37,7 @@
         <!-- END Stylesheets -->
     </head>
     <body>
+        @include('includes.alert')
         @include('sweetalert::alert')
         <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-modern main-content-boxed">
             <!-- Side Overlay-->

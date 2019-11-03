@@ -645,3 +645,9 @@ $(document).ready(function() {
     });
 
 })
+
+
+$('#btn-hapus').click(function(event) {
+    event.preventDefault()
+    alert('Apakah Anda Yakin Ingin Menghapus Data ini?')
+})

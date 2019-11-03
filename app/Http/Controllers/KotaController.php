@@ -18,9 +18,9 @@ class KotaController extends Controller
         $api_kabupaten = 'http://dev.farizdotid.com/api/daerahindonesia/provinsi/' . $id . '/kabupaten';
         $kabupaten = file_get_contents($api_kabupaten);
         $r_kabupaten = json_decode($kabupaten);
-        // foreach ($r_kabupaten->kabupatens as $data) {
-        //     echo '<option value="' . $data->id  . $data->nama . '">' . $data->nama . '</option>';
-        // }
+        foreach ($r_kabupaten->kabupatens as $data) {
+            echo '<option value="' . $data->id  . $data->nama . '">' . $data->nama . '</option>';
+        }
         return response()->json($r_kabupaten, 200);
 
     }
@@ -30,9 +30,9 @@ class KotaController extends Controller
         $api_kecamatan = 'http://dev.farizdotid.com/api/daerahindonesia/provinsi/kabupaten/'. $id . '/kecamatan';
         $kecamatan = file_get_contents($api_kecamatan);
         $r_kecamatan = json_decode($kecamatan);
-        // foreach ($r_kecamatan->kecamatans as $data) {
-        //     echo '<option  value="' . $data->id  .$data->nama . '">' . $data->nama . '</option>';
-        // }
+        foreach ($r_kecamatan->kecamatans as $data) {
+            echo '<option  value="' . $data->id  .$data->nama . '">' . $data->nama . '</option>';
+        }
 
         return response()->json($r_kecamatan, 200);
 
@@ -45,9 +45,9 @@ class KotaController extends Controller
         $kelurahan = 'http://dev.farizdotid.com/api/daerahindonesia/provinsi/kabupaten/kecamatan/'. $id .'/desa';
         $kelurahan = file_get_contents($kelurahan);
         $r_kelurahan = json_decode($kelurahan);
-        // foreach ($r_kelurahan->desas as $data) {
-        //     echo '<option value="' . $data->id . $data->nama . '">' . $data->nama . '</option>';
-        // }
+        foreach ($r_kelurahan->desas as $data) {
+            echo '<option value="' . $data->id . $data->nama . '">' . $data->nama . '</option>';
+        }
 
         return response()->json($r_kelurahan, 200);
 

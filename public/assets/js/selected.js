@@ -1,6 +1,5 @@
 $(document).ready(function() {
     // Part of for edit form
-
     let selected_provinsi = $('#selected-provinsi-satwil').val().replace(/\d/g, '')
     $.ajax({
         url: '/api/provinsi',
@@ -139,6 +138,155 @@ $(document).ready(function() {
                     const obj = JSON.parse(data)
                     $.each(obj['desas'], function(key, val) {
                         let list_kelurahan = $('#kelurahan_satwil').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
+                        list_kelurahan
+                    })
+
+                },
+
+            })
+        })
+    }
+
+
+    // Selected Kota Data Diri Pendaftar
+    let selected_provinsi_pendaftar = $('#selected-provinsi-pendaftar').val().replace(/\d/g, '')
+    $.ajax({
+        url: '/api/provinsi',
+        type: 'GET',
+        dataType: 'html',
+        success: function(data) {
+            const obj = JSON.parse(data)
+            $.each(obj['semuaprovinsi'], function(key, val) {
+                let list_provinsi = $('#provinsi_pendaftar').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
+                list_provinsi
+                if (selected_provinsi_pendaftar == val['nama']) {
+                    $(list_provinsi).find('option[value="' + val['id'] + selected_provinsi_pendaftar + '"]').attr("selected", "selected");
+                }
+            })
+
+        },
+
+    })
+
+    if ($('#selected-provinsi-pendaftar').val() != "") {
+        let provinsi_id_pendaftar = $('#selected-provinsi-pendaftar').val().replace(/\D/g, '')
+        let selected_kabupaten_pendaftar = $('#selected-kabupaten-pendaftar').val().replace(/\d/g, '')
+        $.ajax({
+            url: '/api/kabupaten/' + provinsi_id_pendaftar,
+            type: 'GET',
+            dataType: 'html',
+            success: function(data) {
+                const obj = JSON.parse(data)
+                $.each(obj['kabupatens'], function(key, val) {
+                    let list_kabupaten = $('#kabupaten_pendaftar').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
+                    list_kabupaten
+                    if (selected_kabupaten_pendaftar == val['nama']) {
+                        $(list_kabupaten).find('option[value="' + val['id'] + selected_kabupaten_pendaftar + '"]').attr("selected", "selected");
+                    }
+                })
+
+            },
+
+        })
+
+        $('#provinsi_pendaftar').change(function() {
+            $('#kabupaten_pendaftar').empty()
+            let provinsi_id = $('#provinsi_pendaftar').val().replace(/\D/g, '')
+            $.ajax({
+                url: '/api/kabupaten/' + provinsi_id,
+                type: 'GET',
+                dataType: 'html',
+                success: function(data) {
+                    const obj = JSON.parse(data)
+                    $.each(obj['kabupatens'], function(key, val) {
+                        let list_kabupaten = $('#kabupaten_pendaftar').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
+                        list_kabupaten
+                    })
+
+                },
+
+            })
+        })
+    }
+
+
+
+
+    // kecamatan dinamis
+    if ($('#selected-kabupaten-pendaftar').val() != "") {
+        let kabupaten_id = $('#selected-kabupaten-pendaftar').val().replace(/\D/g, '')
+        let selected_kecamatan = $('#selected-kecamatan-pendaftar').val().replace(/\d/g, '')
+        $.ajax({
+            url: '/api/kecamatan/' + kabupaten_id,
+            type: 'GET',
+            dataType: 'html',
+            success: function(data) {
+                const obj = JSON.parse(data)
+                $.each(obj['kecamatans'], function(key, val) {
+                    let list_kecamatan = $('#kecamatan_pendaftar').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
+                    list_kecamatan
+                    if (selected_kecamatan == val['nama']) {
+                        $(list_kecamatan).find('option[value="' + val['id'] + selected_kecamatan + '"]').attr("selected", "selected");
+                    }
+                })
+
+            },
+
+        })
+
+        $('#kabupaten_pendaftar').change(function() {
+            $('#kecamatan_pendaftar').empty()
+            let kabupaten_id = $('#kabupaten_pendaftar').val().replace(/\D/g, '')
+            $.ajax({
+                url: '/api/kecamatan/' + kabupaten_id,
+                type: 'GET',
+                dataType: 'html',
+                success: function(data) {
+                    const obj = JSON.parse(data)
+                    $.each(obj['kecamatans'], function(key, val) {
+                        let list_kecamatan = $('#kecamatan_pendaftar').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
+                        list_kecamatan
+                    })
+
+                },
+
+            })
+        })
+    }
+
+    // kelurahan dinamis
+    if ($('#selected-kecamatan-pendaftar').val() != "") {
+        let kecamatan_id = $('#selected-kecamatan-pendaftar').val().replace(/\D/g, '')
+        let selected_kelurahan = $('#selected-kelurahan-pendaftar').val().replace(/\d/g, '')
+        $.ajax({
+            url: '/api/kelurahan/' + kecamatan_id,
+            type: 'GET',
+            dataType: 'html',
+            success: function(data) {
+                const obj = JSON.parse(data)
+                $.each(obj['desas'], function(key, val) {
+                    let list_kelurahan = $('#kelurahan_pendaftar').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
+                    list_kelurahan
+                    if (selected_kelurahan == val['nama']) {
+                        $(list_kelurahan).find('option[value="' + val['id'] + selected_kelurahan + '"]').attr("selected", "selected");
+                    }
+                })
+
+            },
+
+        })
+
+        $('#kecamatan_pendaftar').change(function() {
+            $('#kelurahan_pendaftar').empty()
+            let kacamatan_id = $('#kecamatan_pendaftar').val().replace(/\D/g, '')
+            $.ajax({
+                url: '/api/kelurahan/' + kacamatan_id,
+                type: 'GET',
+                dataType: 'html',
+                success: function(data) {
+                    const obj = JSON.parse(data)
+                    $.each(obj['desas'], function(key, val) {
+                        let list_kelurahan = $('#kelurahan_pendaftar').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
                         list_kelurahan
                     })
 

@@ -100,7 +100,7 @@
                                 <div class="form-group">
                                     <label class="">Pembayaran</label>
                                     <div class="custom-control custom-radio mb-5">
-                                        <input class="custom-control-input" required type="radio" name="pembayaran_satwil" id="pembayaran_satwil" value="Ditempat">
+                                        <input class="custom-control-input" required type="radio" name="pembayaran_satwil"  id="pembayaran_satwil" value="Ditempat" {{ $biodata->satwil['pembayaran_satwil'] == "Ditempat" ? 'checked' : '' }}>
                                         <label class="custom-control-label" for="pembayaran_satwil">Bayar di Tempat</label>
                                     </div>
                                 </div>
@@ -113,18 +113,18 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="nama_lengkap_pendaftar">Nama Lengkap</label>
-                                    <input required type="text" class="form-control" placeholder="Masukan Nama Lengkap" id="nama_lengkap_pendaftar" name="nama_lengkap_pendaftar" valu="{{ old('nama_lengkap_pendaftar') }}"> 
+                                    <input required type="text" class="form-control" placeholder="Masukan Nama Lengkap" id="nama_lengkap_pendaftar" name="nama_lengkap_pendaftar" value="{{ $biodata->nama_lengkap_pendaftar }}"> 
                                     </div>
         
                                     <div class="form-row">
                                         <div class="form-group col-md-7">
                                             <label for="tempat_lahir_pendaftar">Tempat Lahir</label>
-                                            <input required type="text" placeholder="Masukan Tempat Lahir" class="form-control" name="tempat_lahir_pendaftar" id="tempat_lahir_pendaftar" value="{{ old('tempat_lahir_pendaftar') }}" >    
+                                            <input required type="text" placeholder="Masukan Tempat Lahir" class="form-control" name="tempat_lahir_pendaftar" id="tempat_lahir_pendaftar" value="{{ $biodata->tempat_lahir_pendaftar }}" >    
                                         </div>
         
                                         <div class="form-group col-md-5">
                                             <label for="tanggal_lahir_pendaftar">Tanggal Lahir Pendaftar</label>
-                                            <input type="text" class="js-flatpickr form-control bg-white" id="tanggal_lahir_pendaftar" name="tanggal_lahir_pendaftar" placeholder="Pilih Tanggal Lahir" data-date-format="d-m-Y">
+                                            <input value="{{ $biodata->tanggal_lahir_pendaftar }}" type="text" class="js-flatpickr form-control bg-white" id="tanggal_lahir_pendaftar" name="tanggal_lahir_pendaftar" placeholder="Pilih Tanggal Lahir" data-date-format="d-m-Y">
                                         </div>
                                     </div>
                                     
@@ -135,11 +135,11 @@
                                             </div>
                                             <div class="col-md-12  m-2 p-0">
                                                 <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                    <input class="custom-control-input" type="radio" name="jenis_kelamin_pendaftar" id="laki-laki" value="Laki-Laki" checked="">
+                                                    <input class="custom-control-input" type="radio" name="jenis_kelamin_pendaftar" id="laki-laki" value="Laki-Laki" {{ $biodata->jenis_kelamin_pendaftar == 'Laki-Laki' ? 'checked' : '' }}>
                                                     <label class="custom-control-label" for="laki-laki">Laki-Laki</label>
                                                 </div>
                                                 <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                    <input class="custom-control-input" type="radio" name="jenis_kelamin_pendaftar" id="perempuan" value="Perempuan">
+                                                    <input {{ $biodata->jenis_kelamin_pendaftar == 'Perempuan' ? 'checked' : '' }} class="custom-control-input" type="radio" name="jenis_kelamin_pendaftar" id="perempuan" value="Perempuan">
                                                     <label class="custom-control-label" for="perempuan">Perempuan</label>
                                                 </div>
                                             </div>
@@ -152,11 +152,11 @@
                                             </div>
                                         <div class="col-md-12">
                                                 <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                    <input class="custom-control-input" type="radio" name="status_perkawinan_pendaftar" id="sudah_wakin" value="Sudah Kawin" checked="">
+                                                    <input {{ $biodata->statis_perkawinan_pendaftar == 'Sudah Kawin' ? 'checked' : '' }} class="custom-control-input" type="radio" name="status_perkawinan_pendaftar" id="sudah_wakin" value="Sudah Kawin" checked="">
                                                     <label class="custom-control-label" for="sudah_wakin">Sudah Kawin</label>
                                                 </div>
                                                 <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                    <input class="custom-control-input" type="radio" name="status_perkawinan_pendaftar" id="belum_kawin" value="Belum Kawin">
+                                                    <input {{ $biodata->statis_perkawinan_pendaftar == 'Belum Kawin' ? 'checked' : '' }} class="custom-control-input" type="radio" name="status_perkawinan_pendaftar" id="belum_kawin" value="Belum Kawin">
                                                     <label class="custom-control-label" for="belum_kawin">Belum Kawin</label>
                                                 </div>
                                         </div>
@@ -169,11 +169,11 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                    <input class="custom-control-input" type="radio" name="kewarganegaraan_pendaftar" id="wni" value="WNI" checked="">
+                                                    <input {{ $biodata->kewarganegaraan_pendaftar == 'WNI' ? 'checked' : '' }} class="custom-control-input" type="radio" name="kewarganegaraan_pendaftar" id="wni" value="WNI" checked="">
                                                     <label class="custom-control-label" for="wni">WNI</label>
                                                 </div>
                                                 <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                    <input class="custom-control-input" type="radio" name="kewarganegaraan_pendaftar" id="wna" value="WNA">
+                                                    <input {{ $biodata->kewarganegaraan_pendaftar == 'WNA' ? 'checked' : '' }} class="custom-control-input" type="radio" name="kewarganegaraan_pendaftar" id="wna" value="WNA">
                                                     <label class="custom-control-label" for="wna">WNA</label>
                                                 </div>
                                             </div>
@@ -186,36 +186,39 @@
                                             <label for="agama_pendaftar">Agama</label>
                                             <select name="agama_pendaftar" id="" class="form-control">
                                                 <option value="">Pilih Agama</option>
-                                                <option value="Islam">Islam</option>
-                                                <option value="Kristen">Kristen</option>
-                                                <option value="Hindu">Hindu</option>
-                                                <option value="Budha">Budha</option>
-                                                <option value="Katolik">Katolik</option>
-                                                <option value="Konghucu">Konghucu</option>
-                                                <option value="Kepercayaan Tuhan YEM">Kepercayaan Tuhan YME</option>
+                                                <option {{ $biodata->agama_pendaftar == 'Islam' ? 'selected' : '' }} value="Islam">Islam</option>
+                                                <option {{ $biodata->agama_pendaftar == 'Kristen' ? 'selected' : '' }} value="Kristen">Kristen</option>
+                                                <option {{ $biodata->agama_pendaftar == 'Hindu' ? 'selected' : '' }} value="Hindu">Hindu</option>
+                                                <option {{ $biodata->agama_pendaftar == 'Budha' ? 'selected' : '' }} value="Budha">Budha</option>
+                                                <option {{ $biodata->agama_pendaftar == 'Katolik' ? 'selected' : '' }} value="Katolik">Katolik</option>
+                                                <option {{ $biodata->agama_pendaftar == 'Konghucu' ? 'selected' : '' }} value="Konghucu">Konghucu</option>
+                                                <option {{ $biodata->agama_pendaftar == 'Kepercayaan Tuhan YME' ? 'selected' : '' }} value="Kepercayaan Tuhan YEM">Kepercayaan Tuhan YME</option>
                                             </select>
                                         </div>
         
                                         <div class="form-group col-md-4">
                                             <label for="pekerjaan_pendaftar">Pekerjaan</label>
-                                            <input class="form-control" type="text" name="pekerjaan_pendaftar" value="{{ old('pekerjaan_pendaftar') }}" placeholder="Masukan Pekerjaan Anda">
+                                            <input class="form-control" type="text" name="pekerjaan_pendaftar" value="{{ $biodata->pekerjaan_pendaftar }}" placeholder="Masukan Pekerjaan Anda">
                                         </div>
         
                                         <div class="form-group col-md-4">
                                             <label for="telepon_pendaftar">Telepon</label>
-                                            <input class="form-control" type="text" name="telepon_pendaftar" value="{{ old('telepon_pendaftar') }}" placeholder="Masukan Telepon Anda">
+                                            <input class="form-control" type="text" name="telepon_pendaftar" value="{{ $biodata->telepon_pendaftar }}" placeholder="Masukan Telepon Anda">
                                         </div>
                                     </div>
         
         
                                     <div class="form-group">
+                                        <input type="hidden" value="{{ $biodata->provinsi_pendaftar }}" id="selected-provinsi-pendaftar">
                                         <label for="provinsi_pendaftar">Provinsi (Sesuai KTP)</label>
                                         <select name="provinsi_pendaftar" id="provinsi_pendaftar" class="form-control">
+                                            <option value="">Pilih Provinsi</option>
                                             <option value="">Pilih Provinsi</option>
                                         </select>
                                     </div>
         
                                     <div class="form-group">
+                                        <input type="hidden" value="{{ $biodata->kabupaten_pendaftar }}" id="selected-kabupaten-pendaftar">
                                         <label for="kabupaten_pendaftar">Kabupaten (Sesuai KTP)</label>
                                         <select name="kabupaten_pendaftar" id="kabupaten_pendaftar" class="form-control">
                                             <option value="">Pilih Provinsi Dulu</option>
@@ -223,6 +226,7 @@
                                     </div>
         
                                     <div class="form-group">
+                                        <input type="hidden" value="{{ $biodata->kecamatan_pendaftar }}" id="selected-kecamatan-pendaftar">
                                         <label for="kecamatan_pendaftar">Kecamatan (Sesuai KTP)</label>
                                         <select name="kecamatan_pendaftar" id="kecamatan_pendaftar" class="form-control">
                                             <option value="">Pilih Kabupaten Dulu</option>
@@ -230,6 +234,7 @@
                                     </div>
         
                                     <div class="form-group">
+                                        <input type="hidden" value="{{ $biodata->kelurahan_pendaftar }}" id="selected-kelurahan-pendaftar">
                                         <label for="kelurahan_pendaftar">Kelurahan (Sesuai KTP)</label>
                                         <select name="kelurahan_pendaftar" id="kelurahan_pendaftar" class="form-control">
                                             <option value="">Pilih Kecamatan Dulu</option>
@@ -238,7 +243,7 @@
         
                                     <div class="form-group">
                                         <label for="alamat_pendaftar">Alamat Lengkap (Sesuai KTP)</label>
-                                        <textarea class="form-control" name="alamat_pendaftar" id="alamat_pendaftar" cols="30" rows="6"></textarea>
+                                        <textarea class="form-control" name="alamat_pendaftar" id="alamat_pendaftar" cols="30" rows="6"> {{ $biodata->alamat_pendaftar }}</textarea>
                                     </div>
         
                                     <div class="form-row">
@@ -255,12 +260,12 @@
         
                                         <div class="form-group col-md-4">
                                             <label for="nomor_identitas_pendaftar">Nomor Identitas</label>
-                                            <input class=" form-control isMaxLength" maxlength="18" type="text" id="nomor_identitas_pendaftar" name="nomor_identitas_pendaftar" value="{{ old('nomor_identitas_pendaftar') }}" placeholder="Masukan Identitas Anda" >
+                                            <input class=" form-control isMaxLength" maxlength="18" type="text" id="nomor_identitas_pendaftar" name="nomor_identitas_pendaftar" value="{{ $biodata->nomor_identitas_pendaftar }}" placeholder="Masukan Identitas Anda" >
                                         </div>
         
                                         <div class="form-group col-md-4">
                                             <label for="nomor_paspor_pendaftar">Nomor Paspor</label>
-                                            <input class="form-control" type="text" id="nomor_paspor_pendaftar" name="nomor_paspor_pendaftar" value="{{ old('nomor_paspor_pendaftar') }}" placeholder="Masukan Paspor Anda">
+                                            <input class="form-control" type="text" id="nomor_paspor_pendaftar" name="nomor_paspor_pendaftar" value="{{ $biodata->nomor_paspor_pendaftar }}" placeholder="Masukan Paspor Anda">
                                         </div>
                                     </div>
                             </div>

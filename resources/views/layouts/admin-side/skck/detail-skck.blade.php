@@ -11,8 +11,8 @@
                 <div class="font-size-sm text-muted">{{ $biodata->jenis_kelamin_pendaftar }}</div>
             </div>
             <div class="block-content block-content-full">
-                <a class="btn btn-rounded btn-alt-success" href="javascript:void(0)">
-                    <i class="fa fa-plus mr-5"></i>Add
+                <a class="btn btn-rounded btn-alt-danger" href="javascript:void(0)">
+                    <i class="fa fa-trash mr-5"></i>Hapus
                 </a>
                 <a class="btn btn-rounded btn-alt-secondary" href="{{ route('sunting-pendaftar', $biodata->id) }}">
                     <i class="fa fa-pencil mr-5"></i>Sunting

@@ -16,6 +16,7 @@ use App\Satwil;
 use App\Saudara;
 use App\User;
 use Alert;
+use Session;
 use Illuminate\Support\Facades\Hash;
 
 class SkckController extends Controller
@@ -131,5 +132,12 @@ class SkckController extends Controller
     {
         $biodata = Pribadi::find($id);
         return view('layouts.admin-side.skck.edit-skck')->with(['biodata' => $biodata]);
+    }
+
+    public function hapus_pendaftar($id)
+    {
+        $biodata = Pribadi::find($id)->delete();
+        Session::flash('hapus-pendaftar');
+        return redirect()->back();
     }
 }
