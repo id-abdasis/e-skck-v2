@@ -17,6 +17,7 @@ class Ayah extends Model
         'kabupaten_ayah',
         'kecamatan_ayah',
         'alamat_ayah',
+        'kelurahan_ayah',
         'pribadi_id',
     ];
 

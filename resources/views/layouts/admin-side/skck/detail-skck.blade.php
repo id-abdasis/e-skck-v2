@@ -52,13 +52,13 @@
                         <p class="text-muted mb-2 font-13"><b>Pekerjaan :</b> <span
                                 class="ml-2">{{ $biodata->pekerjaan_pendaftar }}</span></p>
                         <p class="text-muted mb-2 font-13"><b>Kota :</b> <span
-                                class="ml-2">{{ substr(preg_replace('/\d/', '', $biodata->kabupaten_pendaftar), 1) }}</span>
+                                class="ml-2">{{ preg_replace('/\d/', '', $biodata->kabupaten_pendaftar) }}</span>
                         </p>
                         <p class="text-muted mb-2 font-13"><b>Kecamatan :</b> <span
-                                class="ml-2">{{ substr(preg_replace('/\d/', '', $biodata->kecamatan_pendaftar), 1) }}</span>
+                                class="ml-2">{{ preg_replace('/\d/', '', $biodata->kecamatan_pendaftar) }}</span>
                         </p>
                         <p class="text-muted mb-2 font-13"><b>Kelurahan :</b> <span
-                                class="ml-2">{{ substr(preg_replace('/\d/', '', $biodata->kelurahan_pendaftar), 1) }}</span>
+                                class="ml-2">{{ preg_replace('/\d/', '', $biodata->kelurahan_pendaftar) }}</span>
                         </p>
                         <p class="text-muted mb-2 font-13"><b>Alamat Lengkap :</b> <span
                                 class="ml-2">{{ $biodata->alamat_pendaftar }}</span></p>

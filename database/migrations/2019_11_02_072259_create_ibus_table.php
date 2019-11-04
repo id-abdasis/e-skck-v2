@@ -22,6 +22,7 @@ class CreateIbusTable extends Migration
             $table->string('provinsi_ibu', 100);
             $table->string('kabupaten_ibu', 100);
             $table->string('kecamatan_ibu', 100);
+            $table->string('kelurahan_ibu', 100);
             $table->string('alamat_ibu', 250);
             $table->timestamps();
         });

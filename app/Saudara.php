@@ -15,6 +15,7 @@ class Saudara extends Model
         'provinsi_saudara',
         'kabupaten_saudara',
         'kecamatan_saudara',
+        'kelurahan_saudara',
         'alamat_saudara',
         'pribadi_id',
     ];

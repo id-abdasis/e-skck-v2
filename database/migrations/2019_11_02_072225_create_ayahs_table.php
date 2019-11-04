@@ -22,6 +22,7 @@ class CreateAyahsTable extends Migration
             $table->string('provinsi_ayah', 100);
             $table->string('kabupaten_ayah', 100);
             $table->string('kecamatan_ayah', 100);
+            $table->string('kelurahan_ayah', 100);
             $table->string('alamat_ayah', 250);
             $table->timestamps();
         });

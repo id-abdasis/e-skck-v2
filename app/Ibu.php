@@ -16,6 +16,7 @@ class Ibu extends Model
         'provinsi_ibu',
         'kabupaten_ibu',
         'kecamatan_ibu',
+        'kelurahan_ibu',
         'alamat_ibu',
         'pribadi_id',
     ];

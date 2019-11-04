@@ -52,4 +52,40 @@ class KotaController extends Controller
         return response()->json($r_kelurahan, 200);
 
     }
+
+
+    // api v2 via json
+    public function provinsi_id()
+    {
+        $api_provinsi = 'http://dev.farizdotid.com/api/daerahindonesia/provinsi';
+        $provinsi = file_get_contents($api_provinsi);
+        $r_provinsi = json_decode($provinsi);
+        return response()->json( $r_provinsi, 200);
+    }
+
+    public function kabupaten_id($id)
+    {
+        $api_kabupaten = 'http://dev.farizdotid.com/api/daerahindonesia/provinsi/' . $id . '/kabupaten';
+        $kabupaten = file_get_contents($api_kabupaten);
+        $r_kabupaten = json_decode($kabupaten);
+        return response()->json($r_kabupaten, 200);
+    }
+
+    public function kecamatan_id($id)
+    {
+        $api_kecamatan = 'http://dev.farizdotid.com/api/daerahindonesia/provinsi/kabupaten/'. $id . '/kecamatan';
+        $kecamatan = file_get_contents($api_kecamatan);
+        $r_kecamatan = json_decode($kecamatan);
+        return response()->json($r_kecamatan, 200);
+        
+    }
+
+    public function kelurahan_id($id)
+    {
+        $kelurahan = 'http://dev.farizdotid.com/api/daerahindonesia/provinsi/kabupaten/kecamatan/'. $id .'/desa';
+        $kelurahan = file_get_contents($kelurahan);
+        $r_kelurahan = json_decode($kelurahan);
+        return response()->json($r_kelurahan, 200);
+
+    }
 }

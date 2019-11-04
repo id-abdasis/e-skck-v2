@@ -22,6 +22,7 @@ class CreateSaudarasTable extends Migration
             $table->string('provinsi_saudara', 100);
             $table->string('kabupaten_saudara', 100);
             $table->string('kecamatan_saudara', 100);
+            $table->string('kelurahan_saudara', 100);
             $table->string('alamat_saudara', 250);
             $table->timestamps();
         });

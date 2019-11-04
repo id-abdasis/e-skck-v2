@@ -651,3 +651,16 @@ $('#btn-hapus').click(function(event) {
     event.preventDefault()
     alert('Apakah Anda Yakin Ingin Menghapus Data ini?')
 })
+
+$('input[name="status_perkawinan_pendaftar"]').change(function() {
+    if (this.value == "Belum Kawin") {
+        $('#data_pasangan').css({ 'background': '#f1f2f6', 'padding': '10px', 'border-radius': '4px', 'margin-bottom': '20px' })
+        $(" #data_pasangan :input").attr('value', "-")
+        $(" #data_pasangan :input").prop('disabled', true)
+    } else if (this.value == "Sudah Kawin") {
+        $('#data_pasangan').css({ 'background': '', 'padding': '', 'border-radius': '' })
+        $(" #data_pasangan :input").removeAttr('disabled')
+        $(" #data_pasangan :input").val('')
+
+    }
+})

@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', 'SkckController@index');
     Route::get('daftar-skck', 'SkckController@daftar_skck')->name('daftar-skck');
     Route::get('sunting-pendaftar/{id}', 'SkckController@sunting_pendaftar')->name('sunting-pendaftar');
+    Route::post('update-pendaftar/', 'SkckController@update_pendaftar')->name('update-pendaftar');
     Route::get('sunting-template', 'SkckController@template')->name('template');
     Route::get('hapus-pendaftar/{id}', 'SkckController@hapus_pendaftar')->name('hapus-pendaftar');
     Route::post('update-template', 'SkckController@update_template')->name('update-template');

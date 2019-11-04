@@ -38,9 +38,9 @@ class Pribadi extends Model
         return $this->hasOne(Ibu::class);
     }
 
-    public function saudaras()
+    public function saudara()
     {
-        return $this->hasMany(Saudara::class);
+        return $this->hasOne(Saudara::class);
     }
 
     public function satwil()
