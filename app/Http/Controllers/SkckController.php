@@ -17,6 +17,7 @@ use App\Saudara;
 use App\User;
 use Alert;
 use Session;
+use App\Template;
 use Illuminate\Support\Facades\Hash;
 
 class SkckController extends Controller
@@ -109,6 +110,19 @@ class SkckController extends Controller
                 'email' => 'admin@mail.com',
                 'password' => Hash::make('rahasia'),
             ]);
+
+            Template::create([
+                'judul_kiri_atas' => 'Belum di set',
+                'alamat_dijudul' => 'Belum di set',
+                'atas_nama' => 'Belum di set',
+                'satuan_kepala' => 'Belum di set',
+                'pejabat' => 'Belum di set',
+                'jabatan' => 'Belum di set',
+                'lokasi_cetak' => 'Belum di set',
+                'masa' => 'Belum di set',
+                'user_id' => User::all()->pluck('id')->first(),
+            ]);
+
             Alert::success('Berhasil', 'Penambahan Akun Berhasil');
             return redirect('admin');
         }else{

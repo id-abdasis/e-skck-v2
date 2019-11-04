@@ -27,3 +27,24 @@
     )
     </script>
 @endif
+
+
+@if (Session::has('update-user'))
+<script>
+    Swal.fire(
+        'Berhasil',
+        'Perubahan Data Berhasil Dilakukan',
+        'success'
+    )
+    </script>
+@endif
+
+@if (Session::has('template-diupdate'))
+<script>
+    Swal.fire(
+        'Berhasil',
+        'Perubahan Data Berhasil Dilakukan',
+        'success'
+    )
+    </script>
+@endif

@@ -30,9 +30,11 @@
                     <td class="d-none d-sm-table-cell">{{ $user->email }}</td>
                     <td class="d-none d-sm-table-cell">{{ 'Diamankan' }}</td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit Pengguna">
-                            <i class="fa fa-pencil"></i>
-                        </button>
+                        <a href="{{ route('user.sunting-user', $user->id) }}">
+                            <button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit Pengguna">
+                                <i class="fa fa-pencil"></i>
+                            </button>
+                        </a>
                         <a href="{{ route('user.hapus-user', $user->id) }}" onclick="alertHapus()">
                             <button type="button" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Hapus Data">
                                 <i class="fa fa-trash"></i>

@@ -11,7 +11,7 @@
                     <a href="{{ route('daftar-skck') }}">Data SKCK</a>
                 </li>
                 <li>
-                    <a href="be_blocks_tiles.html">Tambah SKCK</a>
+                    <a href="{{ route('pendaftaran-skck') }}">Tambah SKCK</a>
                 </li>
             </ul>
         </li>
@@ -19,16 +19,16 @@
             <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-users"></i><span class="sidebar-mini-hide">Management User</span></a>
             <ul>
                 <li>
-                    <a href="be_blocks.html">Data User</a>
+                    <a href="{{ route('daftar-user') }}">Data User</a>
                 </li>
                 <li>
-                    <a href="be_blocks_tiles.html">Tambah User</a>
+                    <a href="{{ route('user.tambah-user') }}">Tambah User</a>
                 </li>
             </ul>
         </li>
         <li class="nav-main-heading"><span class="sidebar-mini-visible">P</span><span class="sidebar-mini-hidden">Pengaturan</span></li>
         <li>
-            <a href="be_pages_dashboard.html"><i class="si si-screen-desktop"></i><span class="sidebar-mini-hide">Setting Template</span></a>
+            <a href="{{ route('template.setting-template') }}"><i class="si si-screen-desktop"></i><span class="sidebar-mini-hide">Setting Template</span></a>
         </li>
         
     </ul>

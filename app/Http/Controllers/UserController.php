@@ -61,5 +61,26 @@ class UserController extends Controller
 
     }
 
+    public function sunting_user($id)
+    {
+        $user = User::find($id);
+        return view('layouts.admin-side.user.sunting-user')->with(['user' => $user]);
+    }
+
+    public function update_user($id, Request $request)
+    {
+        $password_asal = User::where('id', $id)->pluck('password')->first();
+        $user = User::find($id)->update([
+            'name'  => $request->name,
+            'email' => $request->email,
+            'password' => $request->password ? : $password_asal,
+        ]);
+        Alert::success('Berhasil', 'Perubahan Berhasil Disimpan');
+        Session::flash('update-user');
+        return redirect()->route('daftar-user');
+    }
+
+   
+
 
 }

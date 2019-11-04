@@ -29,6 +29,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::get('/tambah-user' , 'UserController@tambah_user')->name('user.tambah-user');
         Route::post('/store-user' , 'UserController@store_user')->name('user.store-user');
         Route::get('/hapus-user/{id}' , 'UserController@hapus_user')->name('user.hapus-user');
+        Route::get('/sunting-user/{id}/profile', 'UserController@sunting_user')->name('user.sunting-user');
+        Route::post('/update-user/{id}/', 'UserController@update_user')->name('user.update-user');
+    });
+    Route::group(['prefix' => 'template'], function () {
+        Route::get('setting-template', 'TemplateController@setting_template')->name('template.setting-template');
+        Route::post('setting-template', 'TemplateController@update_template')->name('template.update-template');
     });
 });
 
