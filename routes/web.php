@@ -24,7 +24,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('hapus-pendaftar/{id}', 'SkckController@hapus_pendaftar')->name('hapus-pendaftar');
     Route::post('update-template', 'SkckController@update_template')->name('update-template');
     Route::get('detail-pendaftar/{id}/profile', 'SkckController@detail_pendaftar')->name('detail');
-    Route::get('print-pendaftar/{id}/profile', 'SkckController@detail_pendaftar')->name('print-pendaftar');
+    Route::get('print-pendaftar/{id}/profile', 'SkckController@print_pendaftar')->name('print-pendaftar');
     Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
         Route::get('/' , 'UserController@index')->name('daftar-user');
         Route::get('/tambah-user' , 'UserController@tambah_user')->name('user.tambah-user');
@@ -42,6 +42,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
 
 Route::get('/pendaftaran-skck', 'SkckController@pendaftaran')->name('pendaftaran-skck');
+Route::get('pendaftaran-sukses', function () {
+    return view('layouts.client-side.notif');
+})->name('pendaftaran-sukses');
 Route::post('/pendaftaran-skck', 'SkckController@store_skck')->name('store-skck');
 Route::get('/install', 'SkckController@install')->name('install');
 Auth::routes();

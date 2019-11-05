@@ -647,10 +647,14 @@ $(document).ready(function() {
 })
 
 
-$('#btn-hapus').click(function(event) {
-    event.preventDefault()
-    alert('Apakah Anda Yakin Ingin Menghapus Data ini?')
-})
+// $('#btn-hapus').click(function() {
+//     $hapusConfirm = confirm('Apakah Anda Yakin Ingin Menghapus Data ini?')
+//     if ($hapusConfirm) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// })
 
 $('input[name="status_perkawinan_pendaftar"]').change(function() {
     if (this.value == "Belum Kawin") {
@@ -660,7 +664,5 @@ $('input[name="status_perkawinan_pendaftar"]').change(function() {
     } else if (this.value == "Sudah Kawin") {
         $('#data_pasangan').css({ 'background': '', 'padding': '', 'border-radius': '' })
         $(" #data_pasangan :input").removeAttr('disabled')
-        $(" #data_pasangan :input").val('')
-
     }
 })

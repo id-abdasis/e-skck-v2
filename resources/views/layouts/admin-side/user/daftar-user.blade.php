@@ -35,7 +35,7 @@
                                 <i class="fa fa-pencil"></i>
                             </button>
                         </a>
-                        <a href="{{ route('user.hapus-user', $user->id) }}" onclick="alertHapus()">
+                        <a href="{{ route('user.hapus-user', $user->id) }}" onclick="return confirm('Yakin mau menghapus data ini?')">
                             <button type="button" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Hapus Data">
                                 <i class="fa fa-trash"></i>
                             </button>

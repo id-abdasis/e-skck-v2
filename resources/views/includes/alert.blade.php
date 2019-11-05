@@ -48,3 +48,13 @@
     )
     </script>
 @endif
+
+@if (Session::has('update-pendaftar'))
+<script>
+    Swal.fire(
+        'Berhasil',
+        'Perubahan Data Berhasil Dilakukan',
+        'success'
+    )
+    </script>
+@endif

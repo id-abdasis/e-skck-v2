@@ -19,7 +19,7 @@
 
             <!-- Layout Options (used just for demonstration) -->
             <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-            <div class="btn-group" role="group">
+            {{-- <div class="btn-group" role="group">
                 <button type="button" class="btn btn-circle btn-dual-secondary" id="page-header-options-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-wrench"></i>
                 </button>
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- END Layout Options -->
         </div>
         <!-- END Left Section -->
@@ -105,29 +105,18 @@
             <div class="btn-group" role="group">
                 <button type="button" class="btn btn-rounded btn-dual-secondary" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-user d-sm-none"></i>
-                    <span class="d-none d-sm-inline-block">J. Smith</span>
+                    <span class="d-none d-sm-inline-block">{{ Auth::user()->name }}</span>
                     <i class="fa fa-angle-down ml-5"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right min-width-200" aria-labelledby="page-header-user-dropdown">
                     <h5 class="h6 text-center py-10 mb-5 border-b text-uppercase">User</h5>
                     <a class="dropdown-item" href="be_pages_generic_profile.html">
-                        <i class="si si-user mr-5"></i> Profile
+                        <i class="si si-user mr-5"></i> Ubah Akun
                     </a>
                     <a class="dropdown-item d-flex align-items-center justify-content-between" href="be_pages_generic_inbox.html">
-                        <span><i class="si si-envelope-open mr-5"></i> Inbox</span>
-                        <span class="badge badge-primary">3</span>
-                    </a>
-                    <a class="dropdown-item" href="be_pages_generic_invoice.html">
-                        <i class="si si-note mr-5"></i> Invoices
+                        <span><i class="si si-wrench mr-5"></i> Pengaturan Template</span>
                     </a>
                     <div class="dropdown-divider"></div>
-
-                    <!-- Toggle Side Overlay -->
-                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                    <a class="dropdown-item" href="javascript:void(0)" data-toggle="layout" data-action="side_overlay_toggle">
-                        <i class="si si-wrench mr-5"></i> Settings
-                    </a>
-                    <!-- END Side Overlay -->
 
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="op_auth_signin.html">
@@ -138,7 +127,7 @@
             <!-- END User Dropdown -->
 
             <!-- Notifications -->
-            <div class="btn-group" role="group">
+            {{-- <div class="btn-group" role="group">
                 <button type="button" class="btn btn-rounded btn-dual-secondary" id="page-header-notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-flag"></i>
                     <span class="badge badge-primary badge-pill">5</span>
@@ -207,14 +196,14 @@
                         <i class="fa fa-flag mr-5"></i> View All
                     </a>
                 </div>
-            </div>
+            </div> --}}
             <!-- END Notifications -->
 
             <!-- Toggle Side Overlay -->
             <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-            <button type="button" class="btn btn-circle btn-dual-secondary" data-toggle="layout" data-action="side_overlay_toggle">
+            {{-- <button type="button" class="btn btn-circle btn-dual-secondary" data-toggle="layout" data-action="side_overlay_toggle">
                 <i class="fa fa-tasks"></i>
-            </button>
+            </button> --}}
             <!-- END Toggle Side Overlay -->
         </div>
         <!-- END Right Section -->

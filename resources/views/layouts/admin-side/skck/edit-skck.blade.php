@@ -185,7 +185,7 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="agama_pendaftar">Agama</label>
-                                            <select required name="agama_pendaftar" id="" class="form-control">
+                                            <select required name="agama_pendaftar" id="agama_pendaftar" class="form-control">
                                                 <option value="">Pilih Agama</option>
                                                 <option {{ $biodata->agama_pendaftar == 'Islam' ? 'selected' : '' }} value="Islam">Islam</option>
                                                 <option {{ $biodata->agama_pendaftar == 'Kristen' ? 'selected' : '' }} value="Kristen">Kristen</option>
@@ -250,11 +250,11 @@
                                         <div class="form-group col-md-4">
                                             <label for="jenis_identitas_pendaftar">Jenis Identitas</label>
                                             <select required name="jenis_identitas_pendaftar" id="jenis_identitas_pendaftar" class="form-control">
-                                                <option value="">Jenis Identitas</option>
-                                                <option value="e-KTP">e-KTP</option>
-                                                <option value="KTP">KTP</option>
-                                                <option value="KITAS">KITAS</option>
-                                                <option value="KITAP">KITAP</option>
+                                                <option value="" >Jenis Identitas</option>
+                                                <option value="e-KTP" {{ $biodata->jenis_identitas_pendaftar == 'e-KTP' ? 'selected' : '' }}>e-KTP</option>
+                                                <option value="KTP" {{ $biodata->jenis_identitas_pendaftar == 'KTP' ? 'selected' : '' }}>KTP</option>
+                                                <option value="KITAS" {{ $biodata->jenis_identitas_pendaftar == 'KITAS' ? 'selected' : '' }}>KITAS</option>
+                                                <option value="KITAP" {{ $biodata->jenis_identitas_pendaftar == 'KITAP' ? 'selected' : '' }}>KITAP</option>
                                             </select>
                                         </div>
         
@@ -304,36 +304,21 @@
                                                     <label for="agama_pasangan">Agama</label>
                                                     <select  name="agama_pasangan" id="agama_pasangan" class="form-control">
                                                         <option value="">Pilih Agama</option>
-                                                        <option {{ $biodata->agama_pendaftar == 'Islam' ? 'selected' : '' }} value="Islam">Islam</option>
-                                                        <option {{ $biodata->agama_pendaftar == 'Kristen' ? 'selected' : '' }} value="Kristen">Kristen</option>
-                                                        <option {{ $biodata->agama_pendaftar == 'Hindu' ? 'selected' : '' }} value="Hindu">Hindu</option>
-                                                        <option {{ $biodata->agama_pendaftar == 'Budha' ? 'selected' : '' }} value="Budha">Budha</option>
-                                                        <option {{ $biodata->agama_pendaftar == 'Katolik' ? 'selected' : '' }} value="Katolik">Katolik</option>
-                                                        <option {{ $biodata->agama_pendaftar == 'Konghucu' ? 'selected' : '' }} value="Konghucu">Konghucu</option>
-                                                        <option {{ $biodata->agama_pendaftar == 'Kepercayaan Tuhan YME' ? 'selected' : '' }} value="Kepercayaan Tuhan YEM">Kepercayaan Tuhan YME</option>
+                                                        <option {{ $biodata->pasangan['agama_pasangan'] == 'Islam' ? 'selected' : '' }} value="Islam">Islam</option>
+                                                        <option {{ $biodata->pasangan['agama_pasangan'] == 'Kristen' ? 'selected' : '' }} value="Kristen">Kristen</option>
+                                                        <option {{ $biodata->pasangan['agama_pasangan'] == 'Hindu' ? 'selected' : '' }} value="Hindu">Hindu</option>
+                                                        <option {{ $biodata->pasangan['agama_pasangan'] == 'Budha' ? 'selected' : '' }} value="Budha">Budha</option>
+                                                        <option {{ $biodata->pasangan['agama_pasangan'] == 'Katolik' ? 'selected' : '' }} value="Katolik">Katolik</option>
+                                                        <option {{ $biodata->pasangan['agama_pasangan'] == 'Konghucu' ? 'selected' : '' }} value="Konghucu">Konghucu</option>
+                                                        <option {{ $biodata->pasangan['agama_pasangan'] == 'Kepercayaan Tuhan YME' ? 'selected' : '' }} value="Kepercayaan Tuhan YEM">Kepercayaan Tuhan YME</option>
                                                     </select>
                                                 </div>
                 
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-8">
                                                     <label for="pekerjaan_pasangan">Pekerjaan</label>
                                                     <input class="form-control" type="text" name="pekerjaan_pasangan" value="{{ $biodata->pasangan['pekerjaan_pasangan'] }}" placeholder="Masukan Pekerjaan Anda">
                                                 </div>
-                
-                                                <div class="form-group col-md-4 m-0 p-0">
-                                                    <div class="col-md-12  m-2 p-0">
-                                                        <label for="">Jenis Kelamin</label>
-                                                    </div>
-                                                    <div class="col-md-12  m-2 p-0">
-                                                        <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                            <input class="custom-control-input" type="radio" name="jenis_kelamin_pasangan" id="laki-laki-pasangan" value="Laki-Laki" checked="">
-                                                            <label class="custom-control-label" for="laki-laki-pasangan">Laki-Laki</label>
-                                                        </div>
-                                                        <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                            <input class="custom-control-input" type="radio" name="jenis_kelamin_pasangan" id="perempuan-pasangan" value="Perempuan">
-                                                            <label class="custom-control-label" for="perempuan-pasangan">Perempuan</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
+
                                             </div>
                     
                     
@@ -395,13 +380,13 @@
                                         <label for="agama_ayah">Agama</label>
                                         <select required name="agama_ayah" id="agama_ayah" class="form-control">
                                             <option value="">Pilih Agama</option>
-                                                <option {{ $biodata->agama_pendaftar == 'Islam' ? 'selected' : '' }} value="Islam">Islam</option>
-                                                <option {{ $biodata->agama_pendaftar == 'Kristen' ? 'selected' : '' }} value="Kristen">Kristen</option>
-                                                <option {{ $biodata->agama_pendaftar == 'Hindu' ? 'selected' : '' }} value="Hindu">Hindu</option>
-                                                <option {{ $biodata->agama_pendaftar == 'Budha' ? 'selected' : '' }} value="Budha">Budha</option>
-                                                <option {{ $biodata->agama_pendaftar == 'Katolik' ? 'selected' : '' }} value="Katolik">Katolik</option>
-                                                <option {{ $biodata->agama_pendaftar == 'Konghucu' ? 'selected' : '' }} value="Konghucu">Konghucu</option>
-                                                <option {{ $biodata->agama_pendaftar == 'Kepercayaan Tuhan YME' ? 'selected' : '' }} value="Kepercayaan Tuhan YEM">Kepercayaan Tuhan YME</option>
+                                                <option {{ $biodata->ayah['agama_ayah'] == 'Islam' ? 'selected' : '' }} value="Islam">Islam</option>
+                                                <option {{ $biodata->ayah['agama_ayah'] == 'Kristen' ? 'selected' : '' }} value="Kristen">Kristen</option>
+                                                <option {{ $biodata->ayah['agama_ayah'] == 'Hindu' ? 'selected' : '' }} value="Hindu">Hindu</option>
+                                                <option {{ $biodata->ayah['agama_ayah'] == 'Budha' ? 'selected' : '' }} value="Budha">Budha</option>
+                                                <option {{ $biodata->ayah['agama_ayah'] == 'Katolik' ? 'selected' : '' }} value="Katolik">Katolik</option>
+                                                <option {{ $biodata->ayah['agama_ayah'] == 'Konghucu' ? 'selected' : '' }} value="Konghucu">Konghucu</option>
+                                                <option {{ $biodata->ayah['agama_ayah'] == 'Kepercayaan Tuhan YME' ? 'selected' : '' }} value="Kepercayaan Tuhan YEM">Kepercayaan Tuhan YME</option>
                                         </select>
                                     </div>
     
@@ -473,13 +458,13 @@
                                         <label for="agama_ibu">Agama</label>
                                         <select required name="agama_ibu" id="agama_ibu" class="form-control">
                                             <option value="">Pilih Agama</option>
-                                            <option {{ $biodata->agama_pendaftar == 'Islam' ? 'selected' : '' }} value="Islam">Islam</option>
-                                            <option {{ $biodata->agama_pendaftar == 'Kristen' ? 'selected' : '' }} value="Kristen">Kristen</option>
-                                            <option {{ $biodata->agama_pendaftar == 'Hindu' ? 'selected' : '' }} value="Hindu">Hindu</option>
-                                            <option {{ $biodata->agama_pendaftar == 'Budha' ? 'selected' : '' }} value="Budha">Budha</option>
-                                            <option {{ $biodata->agama_pendaftar == 'Katolik' ? 'selected' : '' }} value="Katolik">Katolik</option>
-                                            <option {{ $biodata->agama_pendaftar == 'Konghucu' ? 'selected' : '' }} value="Konghucu">Konghucu</option>
-                                            <option {{ $biodata->agama_pendaftar == 'Kepercayaan Tuhan YME' ? 'selected' : '' }} value="Kepercayaan Tuhan YEM">Kepercayaan Tuhan YME</option>
+                                            <option {{ $biodata->ibu['agama_ibu'] == 'Islam' ? 'selected' : '' }} value="Islam">Islam</option>
+                                            <option {{ $biodata->ibu['agama_ibu'] == 'Kristen' ? 'selected' : '' }} value="Kristen">Kristen</option>
+                                            <option {{ $biodata->ibu['agama_ibu'] == 'Hindu' ? 'selected' : '' }} value="Hindu">Hindu</option>
+                                            <option {{ $biodata->ibu['agama_ibu'] == 'Budha' ? 'selected' : '' }} value="Budha">Budha</option>
+                                            <option {{ $biodata->ibu['agama_ibu'] == 'Katolik' ? 'selected' : '' }} value="Katolik">Katolik</option>
+                                            <option {{ $biodata->ibu['agama_ibu'] == 'Konghucu' ? 'selected' : '' }} value="Konghucu">Konghucu</option>
+                                            <option {{ $biodata->ibu['agama_ibu'] == 'Kepercayaan Tuhan YME' ? 'selected' : '' }} value="Kepercayaan Tuhan YEM">Kepercayaan Tuhan YME</option>
                                         </select>
                                     </div>
     
@@ -534,81 +519,72 @@
     
     
                                 <h5>B. Data Saudara</h5>
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="nama_lengkap_saudara">Nama Lengkap</label>
-                                        <input required type="text" placeholder="Masukan Nama Lengkap saudara" class="form-control" name="nama_lengkap_saudara[]" id="nama_lengkap_saudara" value="{{ $biodata->saudara['nama_lengkap_saudara'] }}" >    
-                                    </div>
-    
-                                    
-                                </div>
-                                    
-            
-            
-                                <div class="form-row">
-                                    <div class="form-group col-md-3">
-                                        <label for="agama_saudara">Agama</label>
-                                        <select required name="agama_saudara[]" id="agama_saudara" class="form-control">
-                                            <option value="">Pilih Agama</option>
-                                                <option {{ $biodata->saudara['agama_saudara'] == 'Islam' ? 'selected' : '' }} value="Islam">Islam</option>
-                                                <option {{ $biodata->saudara['agama_saudara'] == 'Kristen' ? 'selected' : '' }} value="Kristen">Kristen</option>
-                                                <option {{ $biodata->saudara['agama_saudara'] == 'Hindu' ? 'selected' : '' }} value="Hindu">Hindu</option>
-                                                <option {{ $biodata->saudara['agama_saudara'] == 'Budha' ? 'selected' : '' }} value="Budha">Budha</option>
-                                                <option {{ $biodata->saudara['agama_saudara'] == 'Katolik' ? 'selected' : '' }} value="Katolik">Katolik</option>
-                                                <option {{ $biodata->saudara['agama_saudara'] == 'Konghucu' ? 'selected' : '' }} value="Konghucu">Konghucu</option>
-                                                <option {{ $biodata->saudara['agama_saudara'] == 'Kepercayaan Tuhan YME' ? 'selected' : '' }} value="Kepercayaan Tuhan YEM">Kepercayaan Tuhan YME</option>
-                                        </select>
-                                    </div>
-    
-                                    <div class="form-group col-md-7">
-                                        <label for="pekerjaan_saudara">Pekerjaan</label>
-                                        <input  required class="form-control" type="text" name="pekerjaan_saudara[]" value="{{ $biodata->saudara['pekerjaan_saudara'] }}" placeholder="Masukan Pekerjaan Anda">
-                                    </div>
-    
-                                    <div class="form-group col-md-2">
-                                        <label for="umur">Umur</label>
-                                        <input required type="text" placeholder="Umur saudara" class="form-control" name="umur_saudara[]" id="umur_saudara" value="{{$biodata->saudara['umur_saudara']}}" >    
-                                    </div>
-                                </div>
-        
-        
-                                <div class="form-group">
-                                    <label for="provinsi_saudara">Provinsi (Sesuai KTP)</label>
-                                    <input type="hidden" value="{{ $biodata->saudara['provinsi_saudara'] }}" id="selected-provinsi-saudara">
-                                    <select required name="provinsi_saudara[]" id="provinsi_saudara" class="form-control">
-                                        <option value="">Pilih Provinsi</option>
-                                    </select>
-                                </div>
-    
-                                <div class="form-group">
-                                        <input type="hidden" value="{{ $biodata->saudara['kabupaten_saudara'] }}" id="selected-kabupaten-saudara">
-
-                                    <label for="kabupaten_saudara">Kabupaten (Sesuai KTP)</label>
-                                    <select required name="kabupaten_saudara[]" id="kabupaten_saudara" class="form-control">
-                                        <option value="">Pilih Provinsi Dulu</option>
-                                    </select>
-                                </div>
-    
-                                <div class="form-group">
-                                        <input type="hidden" value="{{ $biodata->saudara['kecamatan_saudara'] }}" id="selected-kecamatan-saudara">
-                                    <label for="kecamatan_saudara">Kecamatan (Sesuai KTP)</label>
-                                    <select required name="kecamatan_saudara[]" id="kecamatan_saudara" class="form-control">
-                                        <option value="">Pilih Kabupaten Dulu</option>
-                                    </select>
-                                </div>
-    
-                                <div class="form-group">
-                                    <input type="hidden" value="{{ $biodata->saudara['kelurahan_saudara'] }}" id="selected-kelurahan-saudara">
-                                    <label for="kelurahan_saudara">Kelurahan (Sesuai KTP)</label>
-                                    <select required name="kelurahan_saudara[]" id="kelurahan_saudara" class="form-control">
-                                        <option value="">Pilih Kecamatan Dulu</option>
-                                    </select>
-                                </div>
-    
-                                <div class="form-group">
-                                    <label for="alamat_saudara">Alamat Lengkap (Sesuai KTP)</label>
-                                    <textarea required class="form-control" name="alamat_saudara[]" id="alamat_saudara" cols="30" rows="6">{{ $biodata->saudara['alamat_saudara'] }}</textarea>
-                                </div>
+                                @if (count($saudaras) > 0)
+                                    @foreach ($saudaras as $key => $saudara)
+                                        <div class="data-saudara">
+                                            <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                        <label for="nama_lengkap_saudara">Nama Lengkap</label>
+                                                        <input required type="text" placeholder="Masukan Nama Lengkap saudara" class="form-control" name="nama_lengkap_saudara[]" id="nama_lengkap_saudara_{{ $key+1 }}" value="{{ $saudara->nama_lengkap_saudara }}" >    
+                                                    </div>
+                                                </div>
+                                                    
+                            
+                            
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-3">
+                                                        <label for="agama_saudara">Agama</label>
+                                                        <select required name="agama_saudara[]" id="agama_saudara_{{ $key+1 }}" class="form-control">
+                                                            <option value="">Pilih Agama</option>
+                                                                <option {{ $saudara->agama_saudara == 'Islam' ? 'selected' : '' }} value="Islam">Islam</option>
+                                                                <option {{ $saudara->agama_saudara == 'Kristen' ? 'selected' : '' }} value="Kristen">Kristen</option>
+                                                                <option {{ $saudara->agama_saudara == 'Hindu' ? 'selected' : '' }} value="Hindu">Hindu</option>
+                                                                <option {{ $saudara->agama_saudara == 'Budha' ? 'selected' : '' }} value="Budha">Budha</option>
+                                                                <option {{ $saudara->agama_saudara == 'Katolik' ? 'selected' : '' }} value="Katolik">Katolik</option>
+                                                                <option {{ $saudara->agama_saudara == 'Konghucu' ? 'selected' : '' }} value="Konghucu">Konghucu</option>
+                                                                <option {{ $saudara->agama_saudara == 'Kepercayaan Tuhan YME' ? 'selected' : '' }} value="Kepercayaan Tuhan YEM">Kepercayaan Tuhan YME</option>
+                                                        </select>
+                                                    </div>
+                    
+                                                    <div class="form-group col-md-7">
+                                                        <label for="pekerjaan_saudara">Pekerjaan</label>
+                                                        <input  required class="form-control" type="text" name="pekerjaan_saudara[]" value="{{ $saudara->pekerjaan_saudara }}" placeholder="Masukan Pekerjaan Anda">
+                                                    </div>
+                    
+                                                    <div class="form-group col-md-2">
+                                                        <label for="umur">Umur</label>
+                                                        <input required type="text" placeholder="Umur saudara" class="form-control" name="umur_saudara[]" id="umur_saudara_{{ $key+1 }}" value="{{$saudara->umur_saudara }}" >    
+                                                    </div>
+                                                </div>
+                        
+                        
+                                                <div class="form-group">
+                                                    <label for="provinsi_saudara">Provinsi (Sesuai KTP)</label>
+                                                    <input required type="text" placeholder="Provinsi Saudara" class="form-control" name="provinsi_saudara[]" id="provinsi_saudara{{ $key+1 }}" value="{{ preg_replace('/\d/', '', $saudara->provinsi_saudara ) }}" >    
+                                                </div>
+                    
+                                                <div class="form-group">                
+                                                    <label for="kabupaten_saudara">Kabupaten (Sesuai KTP)</label>
+                                                    <input required value="{{ preg_replace('/\d/', '',$saudara->kabupaten_saudara) }}" name="kabupaten_saudara[]" id="kabupaten_saudara_{{ $key+1 }}" class="form-control">
+                                                </div>
+                    
+                                                <div class="form-group">
+                                                    <label for="kecamatan_saudara">Kecamatan (Sesuai KTP)</label>
+                                                    <input required name="kecamatan_saudara[]" value="{{ preg_replace('/\d/', '', $saudara->kecamatan_saudara) }}" id="kecamatan_saudara_{{ $key+1 }}" class="form-control">
+                                                </div>
+                    
+                                                <div class="form-group">
+                                                    <label for="kelurahan_saudara">Kelurahan (Sesuai KTP)</label>
+                                                    <input required name="kelurahan_saudara[]" value="{{ preg_replace('/\d/', '', $saudara->kelurahan_saudara) }}" id="kelurahan_saudara_{{ $key+1 }}" class="form-control">
+                                                </div>
+                    
+                                                <div class="form-group">
+                                                    <label for="alamat_saudara">Alamat Lengkap (Sesuai KTP)</label>
+                                                    <textarea required class="form-control" name="alamat_saudara[]" id="alamat_saudara_{{ $key+1 }}" cols="30" rows="6">{{ $saudara->alamat_saudara }}</textarea>
+                                                </div>
+                                        </div>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                         <!-- END Step 3 -->
@@ -822,16 +798,18 @@
                                     </div>
                                 </div>
 
+                                {{-- alert sidik jari --}}
                                 <div class="form-row">
-                                    
                                     <div class="form-group col-md-6">
                                         <label for="rumusjari" val lang="id">Rumus Sidik Jari (kiri)</label>
-                                        <input required value="{{ $biodata->fisik['rumus_jari_kiri'] }}" maxlength="20" type="text" class="form-control" name="rumus_jari_kiri">
+                                        <input  value="{{ $biodata->fisik['rumus_jari_kiri'] }}" maxlength="20" type="text" class="form-control" name="rumus_jari_kiri">
+                                        <small class="text-danger mt-2">Isi dengan <b>'-'</b> Jika Belum pernah scan sidik jari </small>
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label for="rumusjari" lang="id">Rumus Sidik Jari (kanan)</label>
-                                        <input required value="{{ $biodata->fisik['rumus_jari_kanan'] }}" maxlength="20" type="text" class="form-control " name="rumus_jari_kanan">
+                                        <input  value="{{ $biodata->fisik['rumus_jari_kanan'] }}" maxlength="20" type="text" class="form-control " name="rumus_jari_kanan">
+                                        <small class="text-danger mt-2">Isi dengan <b>'-'</b> Jika Belum pernah scan sidik jari </small>
                                     </div>
                                 </div>
                             </div>
@@ -994,6 +972,7 @@
 <script src="{{ url('/') }}/assets/js/plugins/dropzonejs/dropzone.min.js"></script>
 <script src="{{ url('/') }}/assets/js/plugins/flatpickr/flatpickr.min.js"></script>
 <script src="{{ url('/') }}/assets/js/selected.js"></script>
+
 @endsection
 
 @section('page-js')

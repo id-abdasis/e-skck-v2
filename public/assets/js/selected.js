@@ -893,153 +893,10 @@ $(document).ready(function() {
     }
 
 
-    // Data selected Pendidikan
-    let selected_provinsi_pendidikan = $('#selected-provinsi-pendidikan').val().replace(/\d/g, '')
-    $.ajax({
-        url: '/api/v2/provinsi',
-        type: 'GET',
-        dataType: 'html',
-        success: function(data) {
-            const obj = JSON.parse(data)
-            $.each(obj['semuaprovinsi'], function(key, val) {
-                let list_provinsi = $('#provinsi_pendidikan').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
-                list_provinsi
-                if (selected_provinsi_pendidikan == val['nama']) {
-                    $(list_provinsi).find('option[value="' + val['id'] + selected_provinsi_pendidikan + '"]').attr("selected", "selected");
-                }
-            })
 
-        },
-
-    })
-
-    if ($('#selected-provinsi-pendidikan').val() != "") {
-        let provinsi_id_pendidikan = $('#selected-provinsi-pendidikan').val().replace(/\D/g, '')
-        let selected_kabupaten_pendidikan = $('#selected-kabupaten-pendidikan').val().replace(/\d/g, '')
-        $.ajax({
-            url: '/api/v2/kabupaten/' + provinsi_id_pendidikan,
-            type: 'GET',
-            dataType: 'html',
-            success: function(data) {
-                const obj = JSON.parse(data)
-                $.each(obj['kabupatens'], function(key, val) {
-                    let list_kabupaten = $('#kabupaten_pendidikan').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
-                    list_kabupaten
-                    if (selected_kabupaten_pendidikan == val['nama']) {
-                        $(list_kabupaten).find('option[value="' + val['id'] + selected_kabupaten_pendidikan + '"]').attr("selected", "selected");
-                    }
-                })
-
-            },
-
-        })
-
-        $('#provinsi_pendidikan').change(function() {
-            $('#kabupaten_pendidikan').empty()
-            let provinsi_id = $('#provinsi_pendidikan').val().replace(/\D/g, '')
-            $.ajax({
-                url: '/api/v2/kabupaten/' + provinsi_id,
-                type: 'GET',
-                dataType: 'html',
-                success: function(data) {
-                    const obj = JSON.parse(data)
-                    $.each(obj['kabupatens'], function(key, val) {
-                        let list_kabupaten = $('#kabupaten_pendidikan').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
-                        list_kabupaten
-                    })
-
-                },
-
-            })
-        })
-    }
+    // DATA PENDIDIKAN
 
 
-
-
-    // kecamatan dinamis
-    if ($('#selected-kabupaten-pendidikan').val() != "") {
-        let kabupaten_id = $('#selected-kabupaten-pendidikan').val().replace(/\D/g, '')
-        let selected_kecamatan = $('#selected-kecamatan-pendidikan').val().replace(/\d/g, '')
-        $.ajax({
-            url: '/api/v2/kecamatan/' + kabupaten_id,
-            type: 'GET',
-            dataType: 'html',
-            success: function(data) {
-                const obj = JSON.parse(data)
-                $.each(obj['kecamatans'], function(key, val) {
-                    let list_kecamatan = $('#kecamatan_pendidikan').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
-                    list_kecamatan
-                    if (selected_kecamatan == val['nama']) {
-                        $(list_kecamatan).find('option[value="' + val['id'] + selected_kecamatan + '"]').attr("selected", "selected");
-                    }
-                })
-
-            },
-
-        })
-
-        $('#kabupaten_pendidikan').change(function() {
-            $('#kecamatan_pendidikan').empty()
-            let kabupaten_id = $('#kabupaten_pendidikan').val().replace(/\D/g, '')
-            $.ajax({
-                url: '/api/v2/kecamatan/' + kabupaten_id,
-                type: 'GET',
-                dataType: 'html',
-                success: function(data) {
-                    const obj = JSON.parse(data)
-                    $.each(obj['kecamatans'], function(key, val) {
-                        let list_kecamatan = $('#kecamatan_pendidikan').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
-                        list_kecamatan
-                    })
-
-                },
-
-            })
-        })
-    }
-
-    // kelurahan dinamis
-    if ($('#selected-kecamatan-pendidikan').val() != "") {
-        let kecamatan_id = $('#selected-kecamatan-pendidikan').val().replace(/\D/g, '')
-        let selected_kelurahan = $('#selected-kelurahan-pendidikan').val().replace(/\d/g, '')
-        $.ajax({
-            url: '/api/v2/kelurahan/' + kecamatan_id,
-            type: 'GET',
-            dataType: 'html',
-            success: function(data) {
-                const obj = JSON.parse(data)
-                $.each(obj['desas'], function(key, val) {
-                    let list_kelurahan = $('#kelurahan_pendidikan').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
-                    list_kelurahan
-                    if (selected_kelurahan == val['nama']) {
-                        $(list_kelurahan).find('option[value="' + val['id'] + selected_kelurahan + '"]').attr("selected", "selected");
-                    }
-                })
-
-            },
-
-        })
-
-        $('#kecamatan_pendidikan').change(function() {
-            $('#kelurahan_pendidikan').empty()
-            let kacamatan_id = $('#kecamatan_pendidikan').val().replace(/\D/g, '')
-            $.ajax({
-                url: '/api/v2/kelurahan/' + kacamatan_id,
-                type: 'GET',
-                dataType: 'html',
-                success: function(data) {
-                    const obj = JSON.parse(data)
-                    $.each(obj['desas'], function(key, val) {
-                        let list_kelurahan = $('#kelurahan_pendidikan').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
-                        list_kelurahan
-                    })
-
-                },
-
-            })
-        })
-    }
 
 
 })
@@ -1051,11 +908,158 @@ $('input[name="status_perkawinan_pendaftar"]').change(function() {
     if (this.value == "Belum Kawin") {
         $('#data_pasangan').css({ 'background': '#f1f2f6', 'padding': '10px', 'border-radius': '4px', 'margin-bottom': '20px' })
         $(" #data_pasangan :input").attr('value', "-")
-        $(" #data_pasangan :input").prop('disabled', true)
+        $(" #data_pasangan :input").attr('disabled', 'disabled')
     } else if (this.value == "Sudah Kawin") {
         $('#data_pasangan').css({ 'background': '', 'padding': '', 'border-radius': '' })
         $(" #data_pasangan :input").removeAttr('disabled')
-        $(" #data_pasangan :input").val('')
 
     }
 })
+
+
+let selected_provinsi_pendidikan = $('#selected-provinsi-pendidikan').val().replace(/\d/g, '')
+$.ajax({
+    url: '/api/v2/provinsi',
+    type: 'GET',
+    dataType: 'html',
+    success: function(data) {
+        const obj = JSON.parse(data)
+        $.each(obj['semuaprovinsi'], function(key, val) {
+            let list_provinsi = $('#provinsi_pendidikan').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
+            list_provinsi
+            if (selected_provinsi_pendidikan == val['nama']) {
+                $(list_provinsi).find('option[value="' + val['id'] + selected_provinsi_pendidikan + '"]').attr("selected", "selected");
+            }
+        })
+
+    },
+
+})
+
+if ($('#selected-provinsi-pendidikan').val() != "") {
+    let provinsi_id_pendidikan = $('#selected-provinsi-pendidikan').val().replace(/\D/g, '')
+    let selected_kabupaten_pendidikan = $('#selected-kabupaten-pendidikan').val().replace(/\d/g, '')
+    $.ajax({
+        url: '/api/v2/kabupaten/' + provinsi_id_pendidikan,
+        type: 'GET',
+        dataType: 'html',
+        success: function(data) {
+            const obj = JSON.parse(data)
+            $.each(obj['kabupatens'], function(key, val) {
+                let list_kabupaten = $('#kabupaten_pendidikan').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
+                list_kabupaten
+                if (selected_kabupaten_pendidikan == val['nama']) {
+                    $(list_kabupaten).find('option[value="' + val['id'] + selected_kabupaten_pendidikan + '"]').attr("selected", "selected");
+                }
+            })
+
+        },
+
+    })
+
+    $('#provinsi_pendidikan').change(function() {
+        $('#kabupaten_pendidikan').empty()
+        let provinsi_id = $('#provinsi_pendidikan').val().replace(/\D/g, '')
+        $.ajax({
+            url: '/api/v2/kabupaten/' + provinsi_id,
+            type: 'GET',
+            dataType: 'html',
+            success: function(data) {
+                const obj = JSON.parse(data)
+                $.each(obj['kabupatens'], function(key, val) {
+                    let list_kabupaten = $('#kabupaten_pendidikan').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
+                    list_kabupaten
+                })
+
+            },
+
+        })
+    })
+}
+
+
+
+
+// kecamatan dinamis
+if ($('#selected-kabupaten-pendidikan').val() != "") {
+    let kabupaten_id = $('#selected-kabupaten-pendidikan').val().replace(/\D/g, '')
+    let selected_kecamatan = $('#selected-kecamatan-pendidikan').val().replace(/\d/g, '')
+    $.ajax({
+        url: '/api/v2/kecamatan/' + kabupaten_id,
+        type: 'GET',
+        dataType: 'html',
+        success: function(data) {
+            const obj = JSON.parse(data)
+            $.each(obj['kecamatans'], function(key, val) {
+                let list_kecamatan = $('#kecamatan_pendidikan').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
+                list_kecamatan
+                if (selected_kecamatan == val['nama']) {
+                    $(list_kecamatan).find('option[value="' + val['id'] + selected_kecamatan + '"]').attr("selected", "selected");
+                }
+            })
+
+        },
+
+    })
+
+    $('#kabupaten_pendidikan').change(function() {
+        $('#kecamatan_pendidikan').empty()
+        let kabupaten_id = $('#kabupaten_pendidikan').val().replace(/\D/g, '')
+        $.ajax({
+            url: '/api/v2/kecamatan/' + kabupaten_id,
+            type: 'GET',
+            dataType: 'html',
+            success: function(data) {
+                const obj = JSON.parse(data)
+                $.each(obj['kecamatans'], function(key, val) {
+                    let list_kecamatan = $('#kecamatan_pendidikan').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
+                    list_kecamatan
+                })
+
+            },
+
+        })
+    })
+}
+
+// kelurahan dinamis
+if ($('#selected-kecamatan-pendidikan').val() != "") {
+    let kecamatan_id = $('#selected-kecamatan-pendidikan').val().replace(/\D/g, '')
+    let selected_kelurahan = $('#selected-kelurahan-pendidikan').val().replace(/\d/g, '')
+    $.ajax({
+        url: '/api/v2/kelurahan/' + kecamatan_id,
+        type: 'GET',
+        dataType: 'html',
+        success: function(data) {
+            const obj = JSON.parse(data)
+            $.each(obj['desas'], function(key, val) {
+                let list_kelurahan = $('#kelurahan_pendidikan').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
+                list_kelurahan
+                if (selected_kelurahan == val['nama']) {
+                    $(list_kelurahan).find('option[value="' + val['id'] + selected_kelurahan + '"]').attr("selected", "selected");
+                }
+            })
+
+        },
+
+    })
+
+    $('#kecamatan_pendidikan').change(function() {
+        $('#kelurahan_pendidikan').empty()
+        let kacamatan_id = $('#kecamatan_pendidikan').val().replace(/\D/g, '')
+        $.ajax({
+            url: '/api/v2/kelurahan/' + kacamatan_id,
+            type: 'GET',
+            dataType: 'html',
+            success: function(data) {
+                const obj = JSON.parse(data)
+                $.each(obj['desas'], function(key, val) {
+                    let list_kelurahan = $('#kelurahan_pendidikan').append('<option ' + 'value="' + val['id'] + val['nama'] + '">' + val['nama'] + '</option>')
+                    list_kelurahan
+                })
+
+            },
+
+        })
+    })
+}

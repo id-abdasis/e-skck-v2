@@ -16,7 +16,9 @@ use App\Satwil;
 use App\Saudara;
 use App\User;
 use Alert;
+use Auth;
 use Session;
+
 use App\Template;
 use Illuminate\Support\Facades\Hash;
 
@@ -53,7 +55,7 @@ class SkckController extends Controller
                 'kecamatan_pasangan'    => $request->kecamatan_pasangan ? : '-',
                 'kelurahan_pasangan' => $request->kelurahan_pasangan ? : '-',
                 'alamat_pasangan' => $request->alamat_pasangan ? : '-',
-                'pribadi_id' => $pribadi_id
+                'pribadi_id' => $request->id
             ]);
             $ibu = $pribadi->ibu()->create($request->all());
             $pendidikan = $pribadi->pendidikan()->create($request->all());
@@ -63,15 +65,18 @@ class SkckController extends Controller
             // $saudara = $pribadi->saudara()->create($request->all());
             if (count($request->nama_lengkap_saudara) > 0) {
                 foreach ($request->nama_lengkap_saudara as $key => $value) {
-                    $saudara = Saudara::where('pribadi_id', $pribadi_id)->first();
+                    $saudara = new Saudara;
+                    // dd( $saudara);
                     $saudara->nama_lengkap_saudara = $request->nama_lengkap_saudara[$key];
                     $saudara->umur_saudara = $request->umur_saudara[$key];
                     $saudara->agama_saudara = $request->agama_saudara[$key];
                     $saudara->pekerjaan_saudara = $request->pekerjaan_saudara[$key];
+                    $saudara->provinsi_saudara = $request->provinsi_saudara[$key];
                     $saudara->kabupaten_saudara = $request->kabupaten_saudara[$key];
                     $saudara->kecamatan_saudara = $request->kecamatan_saudara[$key];
                     $saudara->kelurahan_saudara = $request->kelurahan_saudara[$key];
                     $saudara->alamat_saudara = $request->alamat_saudara[$key];
+                    $saudara->pribadi_id    =   $pribadi_id;
                     $saudara->save();
                 }
             }
@@ -115,11 +120,12 @@ class SkckController extends Controller
                 'sidik_jari'    => $uploadSidik_jari,
             ]);
 
-            return "Berhasil Kesimpan";
+            Alert::success('Berhasil', 'Pendaftaran Berhasil Di Lakukan');
+            Session::flash('pendaftaran-sukses');
+            return redirect()->route('pendaftaran-sukses');
         }else{
             return redirect()->back()->withInput();
         }
-        return $request->all();
     }
 
     public function daftar_skck()
@@ -172,19 +178,24 @@ class SkckController extends Controller
     public function sunting_pendaftar($id)
     {       
         $biodata = Pribadi::find($id);
-        return view('layouts.admin-side.skck.edit-skck')->with(['biodata' => $biodata]);
+        $saudara = Saudara::where('pribadi_id', $id)->get();
+        // dd($saudara);
+        // dd($biodata->pasangan);
+        return view('layouts.admin-side.skck.edit-skck')->with(['biodata' => $biodata, 'saudaras' => $saudara]);
     }
 
     public function update_pendaftar(Request $request)
     {
         // dd($lampiran->ktp);
         $pribadi = Pribadi::find($request->id)->update($request->except(['_token']));
-        $pribadi_id = Pribadi::find($request->id)->pluck('id')->first();
+        $pribadi_biodata = Pribadi::find($request->id);
+        $pribadi_id = $pribadi_biodata->id;
+        // dd($pribadi_id)->first();
         if ($pribadi) {
             $request->request->add(['kode_unik' => date('dmyhs') ]);
-            $satwil = Satwil::find($pribadi_id)->fill($request->all())->save();
-            $ayah = Ayah::find($pribadi_id)->fill($request->all())->save();
-            $pasangan = Pasangan::find($pribadi_id)->update([
+            $satwil = Satwil::where('pribadi_id', $pribadi_id)->first()->fill($request->all())->save();
+            $ayah = Ayah::where('pribadi_id', $pribadi_id)->first()->fill($request->all())->save();
+            $pasangan = Pasangan::where('pribadi_id', $pribadi_id)->first()->update([
                 'status_pasangan'   => $request->status_pasangan ? : '-',
                 'nama_lengkap_pasangan' => $request->nama_lengkap_pasangan ? : '-',
                 'umur_pasangan' => $request->umur_pasangan ? : '-',
@@ -198,19 +209,21 @@ class SkckController extends Controller
                 'alamat_pasangan' => $request->alamat_pasangan ? : '-',
                 'pribadi_id' => $request->id
             ]);
-            $ibu = Ibu::find($pribadi_id)->fill($request->all())->save();
-            $pendidikan = Pendidikan::find($pribadi_id)->fill($request->all())->save();
-            $pidana = Pidana::find($pribadi_id)->fill($request->all())->save();
-            $fisik = Fisik::find($pribadi_id)->fill($request->all())->save();
-            $keterangan = Keterangan::find($pribadi_id)->fill($request->all())->save();
-            // $saudara = Saudara::find($pribadi_id)->fill($request->all())->save();
+            $ibu = Ibu::where('pribadi_id', $pribadi_id)->first()->fill($request->all())->save();
+            $pendidikan = Pendidikan::where('pribadi_id', $pribadi_id)->first()->fill($request->all())->save();
+            $pidana = Pidana::where('pribadi_id', $pribadi_id)->first()->fill($request->all())->save();
+            $fisik = Fisik::where('pribadi_id', $pribadi_id)->first()->fill($request->all())->save();
+            $keterangan = Keterangan::where('pribadi_id', $pribadi_id)->first()->fill($request->all())->save();
+            // $saudara = Saudara::find($pribadi_id)->first()->fill($request->all())->save();
             if (count($request->nama_lengkap_saudara) > 0) {
                 foreach ($request->nama_lengkap_saudara as $key => $value) {
-                    $saudara = Saudara::where('pribadi_id', $pribadi_id)->first();
+                    $saudara = Saudara::where('pribadi_id', $pribadi_id)->first()->first();
+                    // dd($saudara);
                     $saudara->nama_lengkap_saudara = $request->nama_lengkap_saudara[$key];
                     $saudara->umur_saudara = $request->umur_saudara[$key];
                     $saudara->agama_saudara = $request->agama_saudara[$key];
                     $saudara->pekerjaan_saudara = $request->pekerjaan_saudara[$key];
+                    $saudara->provinsi_saudara  = $request->provinsi_saudara[$key];
                     $saudara->kabupaten_saudara = $request->kabupaten_saudara[$key];
                     $saudara->kecamatan_saudara = $request->kecamatan_saudara[$key];
                     $saudara->kelurahan_saudara = $request->kelurahan_saudara[$key];
@@ -252,7 +265,7 @@ class SkckController extends Controller
                 $uploadSidik_jari = $lampiran->sidik_jari;
             }
 
-            $lampiran = Lampiran::find($pribadi_id)->update([
+            $lampiran = Lampiran::where('pribadi_id', $pribadi_id)->first()->update([
                 'ktp' => $uploadKTP,
                 'paspor'    => $uploadPaspor,
                 'kartu_keluarga'    => $uploadkartu_keluarga,
@@ -260,11 +273,29 @@ class SkckController extends Controller
                 'sidik_jari'    => $uploadSidik_jari,
             ]);
 
-            return "Berhasil Kesimpan";
+            Session::flash('update-pendaftar');
+            return redirect()->route('detail', ['id' => $pribadi_id]);
         }else{
             return redirect()->back()->withInput();
         }
     }
+
+
+    public function print_pendaftar($id)
+    {
+        $biodata = Pribadi::find($id);
+        $template = Template::where('user_id',Auth::user()->id)->first();
+        // dd($template);
+        // dd(Auth::user()->id);
+        // dd($biodata);
+        return view('layouts.admin-side.skck.cetak-pendaftaran')->with(['biodata' => $biodata, 'template' => $template]);
+    }
+    
+
+
+
+
+
 
     public function hapus_pendaftar($id)
     {

@@ -148,11 +148,11 @@
                                             </div>
                                         <div class="col-md-12">
                                                 <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                    <input class="custom-control-input" type="radio" name="status_perkawinan_pendaftar" id="sudah_wakin" value="Sudah Kawin">
+                                                    <input required class="custom-control-input" type="radio" name="status_perkawinan_pendaftar" id="sudah_wakin" value="Sudah Kawin">
                                                     <label class="custom-control-label" for="sudah_wakin">Sudah Kawin</label>
                                                 </div>
                                                 <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                    <input class="custom-control-input" type="radio" name="status_perkawinan_pendaftar" id="belum_kawin" value="Belum Kawin">
+                                                    <input required class="custom-control-input" type="radio" name="status_perkawinan_pendaftar" id="belum_kawin" value="Belum Kawin">
                                                     <label class="custom-control-label" for="belum_kawin">Belum Kawin</label>
                                                 </div>
                                         </div>
@@ -305,25 +305,9 @@
                                             </select>
                                         </div>
         
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-8">
                                             <label for="pekerjaan_pasangan">Pekerjaan</label>
                                             <input class="form-control" type="text" name="pekerjaan_pasangan" value="{{ old('pekerjaan_pasangan') }}" placeholder="Masukan Pekerjaan Anda">
-                                        </div>
-        
-                                        <div class="form-group col-md-4 m-0 p-0">
-                                            <div class="col-md-12  m-2 p-0">
-                                                <label for="">Jenis Kelamin</label>
-                                            </div>
-                                            <div class="col-md-12  m-2 p-0">
-                                                <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                    <input class="custom-control-input" type="radio" name="jenis_kelamin_pasangan" id="laki-laki-pasangan" value="Laki-Laki" checked="">
-                                                    <label class="custom-control-label" for="laki-laki-pasangan">Laki-Laki</label>
-                                                </div>
-                                                <div class="custom-control custom-radio custom-control-inline mb-5">
-                                                    <input class="custom-control-input" type="radio" name="jenis_kelamin_pasangan" id="perempuan-pasangan" value="Perempuan">
-                                                    <label class="custom-control-label" for="perempuan-pasangan">Perempuan</label>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
             
@@ -510,76 +494,81 @@
     
     
                                 <h5>B. Data Saudara</h5>
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="nama_lengkap_saudara">Nama Lengkap</label>
-                                        <input required required type="text" placeholder="Masukan Nama Lengkap saudara" class="form-control" name="nama_lengkap_saudara" id="nama_lengkap_saudara" value="{{ old('tempat_lahir_saudara') }}" >    
+                                <div class="data-saudara">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="nama_lengkap_saudara">Nama Lengkap</label>
+                                            <input required required type="text" placeholder="Masukan Nama Lengkap saudara" class="form-control" name="nama_lengkap_saudara[]" id="nama_lengkap_saudara" value="{{ old('tempat_lahir_saudara') }}" >    
+                                        </div>
+        
+                                        
                                     </div>
-    
-                                    
-                                </div>
-                                    
+                                        
+                
+                
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <label for="agama_saudara">Agama</label>
+                                            <select required name="agama_saudara[]" id="agama_saudara" class="form-control">
+                                                <option value="">Pilih Agama</option>
+                                                <option value="Islam">Islam</option>
+                                                <option value="Kristen">Kristen</option>
+                                                <option value="Hindu">Hindu</option>
+                                                <option value="Budha">Budha</option>
+                                                <option value="Katolik">Katolik</option>
+                                                <option value="Konghucu">Konghucu</option>
+                                                <option value="Kepercayaan Tuhan YEM">Kepercayaan Tuhan YME</option>
+                                            </select>
+                                        </div>
+        
+                                        <div class="form-group col-md-7">
+                                            <label for="pekerjaan_saudara">Pekerjaan</label>
+                                            <input required class="form-control" type="text" name="pekerjaan_saudara[]" value="{{ old('pekerjaan_saudara') }}" placeholder="Masukan Pekerjaan Anda">
+                                        </div>
+        
+                                        <div class="form-group col-md-2">
+                                            <label for="umur">Umur</label>
+                                            <input required type="text" placeholder="Umur saudara" class="form-control" name="umur_saudara[]" id="umur_saudara" value="{{ old('umur_saudara') }}" >    
+                                        </div>
+                                    </div>
             
             
-                                <div class="form-row">
-                                    <div class="form-group col-md-3">
-                                        <label for="agama_saudara">Agama</label>
-                                        <select required name="agama_saudara" id="agama_saudara" class="form-control">
-                                            <option value="">Pilih Agama</option>
-                                            <option value="Islam">Islam</option>
-                                            <option value="Kristen">Kristen</option>
-                                            <option value="Hindu">Hindu</option>
-                                            <option value="Budha">Budha</option>
-                                            <option value="Katolik">Katolik</option>
-                                            <option value="Konghucu">Konghucu</option>
-                                            <option value="Kepercayaan Tuhan YEM">Kepercayaan Tuhan YME</option>
+                                    <div class="form-group">
+                                        <label for="provinsi_saudara">Provinsi (Sesuai KTP)</label>
+                                        <select required name="provinsi_saudara[]" id="provinsi_saudara" class="form-control">
+                                            <option value="">Pilih Provinsi</option>
                                         </select>
                                     </div>
-    
-                                    <div class="form-group col-md-7">
-                                        <label for="pekerjaan_saudara">Pekerjaan</label>
-                                        <input required class="form-control" type="text" name="pekerjaan_saudara" value="{{ old('pekerjaan_saudara') }}" placeholder="Masukan Pekerjaan Anda">
-                                    </div>
-    
-                                    <div class="form-group col-md-2">
-                                        <label for="umur">Umur</label>
-                                        <input required type="text" placeholder="Umur saudara" class="form-control" name="umur_saudara" id="umur_saudara" value="{{ old('umur_saudara') }}" >    
-                                    </div>
-                                </div>
         
+                                    <div class="form-group">
+                                        <label for="kabupaten_saudara">Kabupaten (Sesuai KTP)</label>
+                                        <select required name="kabupaten_saudara[]" id="kabupaten_saudara" class="form-control">
+                                            <option value="">Pilih Provinsi Dulu</option>
+                                        </select>
+                                    </div>
         
-                                <div class="form-group">
-                                    <label for="provinsi_saudara">Provinsi (Sesuai KTP)</label>
-                                    <select required name="provinsi_saudara" id="provinsi_saudara" class="form-control">
-                                        <option value="">Pilih Provinsi</option>
-                                    </select>
+                                    <div class="form-group">
+                                        <label for="kecamatan_saudara">Kecamatan (Sesuai KTP)</label>
+                                        <select required name="kecamatan_saudara[]" id="kecamatan_saudara" class="form-control">
+                                            <option value="">Pilih Kabupaten Dulu</option>
+                                        </select>
+                                    </div>
+        
+                                    <div class="form-group">
+                                        <label for="kelurahan_saudara">Kelurahan (Sesuai KTP)</label>
+                                        <select required name="kelurahan_saudara[]" id="kelurahan_saudara" class="form-control">
+                                            <option value="">Pilih Kecamatan Dulu</option>
+                                        </select>
+                                    </div>
+        
+                                    <div class="form-group">
+                                        <label for="alamat_saudara">Alamat Lengkap (Sesuai KTP)</label>
+                                        <textarea required class="form-control" name="alamat_saudara[]" id="alamat_saudara" cols="30" rows="6"></textarea>
+                                    </div>
                                 </div>
-    
-                                <div class="form-group">
-                                    <label for="kabupaten_saudara">Kabupaten (Sesuai KTP)</label>
-                                    <select required name="kabupaten_saudara" id="kabupaten_saudara" class="form-control">
-                                        <option value="">Pilih Provinsi Dulu</option>
-                                    </select>
-                                </div>
-    
-                                <div class="form-group">
-                                    <label for="kecamatan_saudara">Kecamatan (Sesuai KTP)</label>
-                                    <select required name="kecamatan_saudara" id="kecamatan_saudara" class="form-control">
-                                        <option value="">Pilih Kabupaten Dulu</option>
-                                    </select>
-                                </div>
-    
-                                <div class="form-group">
-                                    <label for="kelurahan_saudara">Kelurahan (Sesuai KTP)</label>
-                                    <select required name="kelurahan_saudara" id="kelurahan_saudara" class="form-control">
-                                        <option value="">Pilih Kecamatan Dulu</option>
-                                    </select>
-                                </div>
-    
-                                <div class="form-group">
-                                    <label for="alamat_saudara">Alamat Lengkap (Sesuai KTP)</label>
-                                    <textarea required class="form-control" name="alamat_saudara" id="alamat_saudara" cols="30" rows="6"></textarea>
-                                </div>
+                                <button type="button" id="addRow" class="btn btn-xs btn-alt-success mr-5 mb-5">
+                                    <i class="fa fa-plus mr-5"></i>Tambah Form Saudara
+                                </button>
                             </div>
                         </div>
                         <!-- END Step 3 -->
@@ -781,15 +770,17 @@
                                 </div>
 
                                 <div class="form-row">
-                                    
                                     <div class="form-group col-md-6">
                                         <label for="rumusjari" lang="id">Rumus Sidik Jari (kiri)</label>
-                                        <input required="" maxlength="20" type="text" class="form-control" name="rumus_jari_kiri">
+                                        <input  maxlength="20" type="text" class="form-control" name="rumus_jari_kiri">
+                                        <small class="text-danger mt-2">Isi dengan <b>'-'</b> Jika Belum pernah scan sidik jari </small>
+                                        
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label for="rumusjari" lang="id">Rumus Sidik Jari (kanan)</label>
-                                        <input required="" maxlength="20" type="text" class="form-control " name="rumus_jari_kanan">
+                                        <input maxlength="20" type="text" class="form-control " name="rumus_jari_kanan">
+                                        <small class="text-danger mt-2">Isi dengan <b>'-'</b> Jika Belum pernah scan sidik jari </small>
                                     </div>
                                 </div>
                             </div>
@@ -952,6 +943,8 @@
 <script src="{{ url('/') }}/assets/js/plugins/dropzonejs/dropzone.min.js"></script>
 <script src="{{ url('/') }}/assets/js/plugins/flatpickr/flatpickr.min.js"></script>
 <script src="{{ url('/') }}/assets/js/creative.js"></script>
+<script src="{{ url('/') }}/assets/js/jsrows.js"></script>
+
 @endsection
 
 @section('page-js')

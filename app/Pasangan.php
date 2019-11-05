@@ -14,7 +14,6 @@ class Pasangan extends Model
         'umur_pasangan',
         'agama_pasangan',
         'pekerjaan_pasangan',
-        'jenis_kelamin_pasangan',
         'provinsi_pasangan',
         'kabupaten_pasangan',
         'kecamatan_pasangan',

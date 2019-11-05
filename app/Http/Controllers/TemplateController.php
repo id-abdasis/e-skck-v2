@@ -13,7 +13,8 @@ class TemplateController extends Controller
 {
     public function setting_template()
     {
-        $template = Template::all()->first();
+        $template = Template::where('user_id', Auth::user()->id)->first();
+        // dd($template->judul_kiri_atas);
         return view('layouts.admin-side.template')->with(['template' => $template]);
     }
 
