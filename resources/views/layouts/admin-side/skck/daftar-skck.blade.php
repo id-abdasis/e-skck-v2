@@ -50,7 +50,7 @@
                             </button>
                         </a>
 
-                        <a href="{{ route('print-pendaftar', $skck->id) }}">
+                        <a target="_blank" href="{{ route('print-pendaftar', $skck->id) }}">
                             <button type="button" class="btn btn-sm btn-alt-info" data-toggle="tooltip" title="Hapus Pendaftar">
                                 <i class="fa fa-print"></i>
                             </button>
