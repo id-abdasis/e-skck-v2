@@ -1,7 +1,7 @@
 <div class="content-side content-side-full">
     <ul class="nav-main">
         <li>
-            <a href="be_pages_dashboard.html"><i class="si si-cup"></i><span class="sidebar-mini-hide">Dashboard</span></a>
+            {{-- <a href="be_pages_dashboard.html"><i class="si si-cup"></i><span class="sidebar-mini-hide">Dashboard</span></a> --}}
         </li>
         <li class="nav-main-heading"><span class="sidebar-mini-visible">SK</span><span class="sidebar-mini-hidden">SKCK</span></li>
         <li>
