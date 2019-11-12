@@ -56,8 +56,19 @@
                                 <div class="form-group">
                                     <label for="keperluan">Silahkan pilih jenis keperluan pembuatan SKCK sesuai dengan tingkat kewenangan yang diperlukan</label>
                                     <select required class="form-control" id="keperluan" name="keperluan">
-                                        <option value="">Please select</option>
-                                        <option value="1">1</option>
+                                        <option value="">Pilih Keperluan</option>
+                                        <option {{ $biodata->keperluan == "Pencalonan Anggota Legislatif Tingkat Kabupaten/Kota" ? 'selected' : '' }} value="Pencalonan Anggota Legislatif Tingkat Kabupaten/Kota">POLRES - Pencalonan Anggota Legislatif Tingkat Kabupaten/Kota</option>
+                                        <option {{ $biodata->keperluan == "Melamar Sebagai PNS" ? 'selected' : '' }} value="Melamar Sebagai PNS">POLRES - Melamar Sebagai PNS</option>
+                                        <option {{ $biodata->keperluan == "Melamar Sebagai Anggota TNI/POLRI" ? 'selected' : '' }} value="Melamar Sebagai Anggota TNI/POLRI">POLRES - Melamar Sebagai Anggota TNI/POLRI</option>
+                                        <option {{ $biodata->keperluan == "Pencalonan Pejabat Publik" ? 'selected' : '' }} value="Pencalonan Pejabat Publik">POLRES - Pencalonan Pejabat Publik</option>
+                                        <option {{ $biodata->keperluan == "Kepemilikan Senjata Api" ? 'selected' : '' }} value="Kepemilikan Senjata Api">POLRES - Kepemilikan Senjata Api</option>
+                                        <option {{ $biodata->keperluan == "Pencalonan Kepala Daerah Tingkat Kabupaten/Kota" ? 'selected' : '' }} value="Pencalonan Kepala Daerah Tingkat Kabupaten/Kota">POLRES - Pencalonan Kepala Daerah Tingkat Kabupaten/Kota</option>
+                                        <option {{ $biodata->keperluan == "Melamar Pekerjaan" ? 'selected' : '' }} value="Melamar Pekerjaan">POLRES - Melamar Pekerjaan</option>
+                                        <option {{ $biodata->keperluan == "Melamar Pekerjaan" ? 'selected' : '' }} value="Melamar Pekerjaan">POLSEK - Melamar Pekerjaan</option>
+                                        <option {{ $biodata->keperluan == "Pencalonan Kepala Desa" ? 'selected' : '' }} value="Pencalonan Kepala Desa">POLSEK - Pencalonan Kepala Desa</option>
+                                        <option {{ $biodata->keperluan == "Pencalonan Sekertaris Desa" ? 'selected' : '' }} value="Pencalonan Sekertaris Desa">POLSEK - Pencalonan Sekertaris Desa</option>
+                                        <option {{ $biodata->keperluan == "Pindah Alamat" ? 'selected' : '' }} value="Pindah Alamat">POLSEK - Pindah Alamat</option>
+                                        <option {{ $biodata->keperluan == "Melanjutkan Sekolah" ? 'selected' : '' }} value="Melanjutkan Sekolah">POLSEK - Melanjutkan Sekolah</option>
                                     </select>                            
                                 </div>
                                 <div class="form-group">

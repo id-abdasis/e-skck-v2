@@ -30,7 +30,13 @@ class SkckController extends Controller
     }
     public function pendaftaran()
     {
-        return view('layouts.client-side.pendaftaran-skck');
+        $api_kabupaten = 'http://dev.farizdotid.com/api/daerahindonesia/provinsi/33/kabupaten';
+        $api_kecamatan = 'http://dev.farizdotid.com/api/daerahindonesia/provinsi/kabupaten/3328/kecamatan';
+        $kabupaten = file_get_contents($api_kabupaten);
+        $r_kabupaten = json_decode($kabupaten);
+        $kecamatan = file_get_contents($api_kecamatan);
+        $r_kecamatan = json_decode($kecamatan);
+        return view('layouts.client-side.pendaftaran-skck')->with(['polres' => $r_kabupaten, 'polsek' => $r_kecamatan]);
     }
 
     public function store_skck(Request $request)

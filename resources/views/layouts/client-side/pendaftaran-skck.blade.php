@@ -55,8 +55,19 @@
                                 <div class="form-group">
                                     <label for="keperluan">Silahkan pilih jenis keperluan pembuatan SKCK sesuai dengan tingkat kewenangan yang diperlukan</label>
                                     <select required class="form-control" id="keperluan" name="keperluan">
-                                        <option value="">Please select</option>
-                                        <option value="1">1</option>
+                                        <option value="">Pilih Keperluan</option>
+                                        <option value="Pencalonan Anggota Legislatif Tingkat Kabupaten/Kota">POLRES - Pencalonan Anggota Legislatif Tingkat Kabupaten/Kota</option>
+                                        <option value="Melamar Sebagai PNS">POLRES - Melamar Sebagai PNS</option>
+                                        <option value="Melamar Sebagai Anggota TNI/POLRI">POLRES - Melamar Sebagai Anggota TNI/POLRI</option>
+                                        <option value="Pencalonan Pejabat Publik">POLRES - Pencalonan Pejabat Publik</option>
+                                        <option value="Kepemilikan Senjata Api">POLRES - Kepemilikan Senjata Api</option>
+                                        <option value="Pencalonan Kepala Daerah Tingkat Kabupaten/Kota">POLRES - Pencalonan Kepala Daerah Tingkat Kabupaten/Kota</option>
+                                        <option value="Melamar Pekerjaan">POLRES - Melamar Pekerjaan</option>
+                                        <option value="Melamar Pekerjaan">POLSEK - Melamar Pekerjaan</option>
+                                        <option value="Pencalonan Kepala Desa">POLSEK - Pencalonan Kepala Desa</option>
+                                        <option value="Pencalonan Sekertaris Desa">POLSEK - Pencalonan Sekertaris Desa</option>
+                                        <option value="Pindah Alamat">POLSEK - Pindah Alamat</option>
+                                        <option value="Melanjutkan Sekolah">POLSEK - Melanjutkan Sekolah</option>
                                     </select>                            
                                 </div>
                                 <div class="form-group">

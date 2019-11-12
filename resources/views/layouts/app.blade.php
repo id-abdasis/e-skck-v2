@@ -424,9 +424,7 @@
             <main id="main-container">
 
                 <!-- Page Content -->
-                <div class="content">
                     @yield('main-content')
-                </div>
                 <!-- END Page Content -->
 
             </main>

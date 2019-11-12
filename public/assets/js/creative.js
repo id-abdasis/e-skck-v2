@@ -666,3 +666,30 @@ $('input[name="status_perkawinan_pendaftar"]').change(function() {
         $(" #data_pasangan :input").removeAttr('disabled')
     }
 })
+
+
+$('input[name="perkara_pidana"]').change(function() {
+    if (this.value == "Tidak Pernah") {
+        $('#pidana').css({ 'background': '#f1f2f6', 'padding': '10px', 'border-radius': '4px', 'margin-bottom': '20px' })
+        $(" #pidana :input").prop('disabled', true)
+        $(" #pidana :input").val()
+    } else if (this.value == "Pernah") {
+        $('#pidana').css({ 'background': '', 'padding': '', 'border-radius': '' })
+        $(" #pidana :input").removeAttr('disabled')
+        $(" #pidana :input").val()
+
+    }
+})
+
+$('input[name="perkara_pelanggaran"]').change(function() {
+    if (this.value == "Tidak Pernah") {
+        $('#pelanggaran').css({ 'background': '#f1f2f6', 'padding': '10px', 'border-radius': '4px', 'margin-bottom': '20px' })
+        $(" #pelanggaran :input").prop('disabled', true)
+        $(" #pelanggaran :input").val()
+    } else if (this.value == "Pernah") {
+        $('#pelanggaran').css({ 'background': '', 'padding': '', 'border-radius': '' })
+        $(" #pelanggaran :input").removeAttr('disabled')
+        $(" #pelanggaran :input").val()
+
+    }
+})
