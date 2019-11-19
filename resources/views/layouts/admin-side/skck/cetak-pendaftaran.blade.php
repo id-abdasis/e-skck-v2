@@ -55,7 +55,7 @@
         }
         
         .jenis {
-            width: 150px;
+            width: 250px;
         }
         
         .jenis p {
@@ -72,7 +72,7 @@
         
         #posisi-kiri {
             position: relative;
-            margin-left: 150;
+            margin-left: 150px;
             font-weight: 800;
             font-size: 10px;
             text-transform: uppercase;
@@ -100,80 +100,79 @@
             <table class="table table-borderless table table-sm">
                 <tbody>
                     <tr>
-                        <td class="jenis">
+                        <td class="jenis" style="witdh:500px">
                             <p id="indonesia">Nama</p>
                             <p>Name</p>
                         </td>
                         <td class="titik">:</td>
-                        <td class="data">{{ $biodata->nama_lengkap_pendaftar }}</td>
-
+                        <td class="data">{{ strtoupper($biodata->nama_lengkap_pendaftar) }}</td>
                     </tr>
                     <tr>
-                        <td class="jenis">
+                        <td class="jenis" style="witdh:500px">
                             <p id="indonesia">Jenis Kelamin</p>
                             <p>Sex</p>
                         </td>
                         <td class="titik">:</td>
-                        <td class="data">{{ $biodata->jenis_kelamin_pendaftar }}</td>
+                        <td class="data">{{ strtoupper($biodata->jenis_kelamin_pendaftar) }}</td>
                     </tr>
                     <tr>
-                        <td class="jenis">
+                        <td class="jenis" style="witdh:500px">
                             <p id="indonesia">Kebangsaan Indonesia</p>
                             <p>Nationality</p>
                         </td>
                         <td class="titik">:</td>
-                        <td class="data">{{ $biodata->kewarganegaraan_pendaftar}}</td>
+                        <td class="data">{{ strtoupper($biodata->kewarganegaraan_pendaftar) }}</td>
                     </tr>
 
                     <tr>
-                        <td class="jenis">
+                        <td class="jenis" style="witdh:500px">
                             <p id="indonesia">Agama</p>
                             <p>Religion</p>
                         </td>
                         <td class="titik">:</td>
-                        <td class="data">{{ $biodata->agama_pendaftar }}</td>
+                        <td class="data">{{ strtoupper($biodata->agama_pendaftar) }}</td>
                     </tr>
 
                     <tr>
-                        <td class="jenis">
+                        <td class="jenis" style="witdh:500px">
                             <p id="indonesia">Tempat Tanggal Lahir</p>
                             <p>Place and Date of birth</p>
                         </td>
                         <td class="titik">:</td>
-                        <td class="data">{{$biodata->tempat_lahir_pendaftar}}, {{ $biodata->tanggal_lahir_pendaftar }}</td>
+                        <td class="data">{{ strtoupper($biodata->tempat_lahir_pendaftar) , strtoupper( $biodata->tanggal_lahir_pendaftar) }}</td>
                     </tr>
 
                     <tr>
-                        <td class="jenis">
+                        <td class="jenis" style="witdh:500px">
                             <p id="indonesia">Tempat Tinggal Sekarang</p>
                             <p>Current Adress</p>
                         </td>
                         <td class="titik">:</td>
-                        <td class="data">{{ $biodata->alamat_pendaftar }}</td>
+                        <td class="data">{{ strtoupper($biodata->alamat_pendaftar) }}</td>
                     </tr>
 
                     <tr>
-                        <td class="jenis">
+                        <td class="jenis" style="witdh:500px">
                             <p id="indonesia">Pekerjaan</p>
                             <p>Occupation</p>
                         </td>
                         <td class="titik">:</td>
-                        <td class="data">{{ $biodata->pekerjaan_pendaftar }}</td>
+                        <td class="data">{{ strtoupper($biodata->pekerjaan_pendaftar) }}</td>
                     </tr>
                 </tbody>
             </table>
             <table class="table table-borderless table table-sm">
                 <tbody>
                     <tr>
-                        <td class="jenis">
-                            <p id="indonesia">Nomor KTP</p>
+                        <td class="jenis" style="witdh:500px">
+                            <p id="indonesia">Nomor Kartu Tanda Penduduk</p>
                             <p>Identiti Number</p>
                         </td>
                         <td class="titik">:</td>
                         <td class="data">{{ $biodata->nomor_identitas_pendaftar }}</td>
                     </tr>
                     <tr>
-                        <td class="jenis">
+                        <td class="jenis" style="witdh:500px">
                             <p id="indonesia">Nomor Paspor</p>
                             <p>Pasport Number</p>
                         </td>
@@ -206,7 +205,7 @@
                             during his/her stay in Indonesia from
                         </td>
                         <td class="titik">:</td>
-                        <td class="data">{{ date('d-M-Y') }}</td>
+                        <td class="data">{{ date('d F Y') }}</td>
                     </tr>
                     <tr>
                         <td style="width:300px; padding:0">
@@ -214,7 +213,7 @@
                             To
                         </td>
                         <td class="titik">:</td>
-                        <td class="data">{{ date('d-M-Y', strtotime('+1 month'))}}</td>
+                        <td class="data">{{ date('d F Y', strtotime('+1 month'))}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -227,14 +226,14 @@
                             <p id="indonesia"> <u>Untuk Keperluan/menuju*</u> <br> </p>For the purpose
                         </td>
                         <td class="titik">:</td>
-                        <td class="data">{{ $biodata->satwil['keperluan'] }}</td>
+                        <td class="data">{{ strtoupper($biodata->satwil['keperluan']) }}</td>
                     </tr>
                     <tr>
                         <td style="width:300px; padding:0">
                             <p id="indonesia"> <u>Berlaku Dari Tanggal</u> <br> </p> Valid from
                         </td>
                         <td class="titik">:</td>
-                        <td class="data">{{ date('d-M-Y')}}</td>
+                        <td class="data">{{ strtoupper(date('d F Y')) }}</td>
                     </tr>
 
                     <tr>
@@ -242,32 +241,52 @@
                             <p id="indonesia"> <u>Sampai dengan</u> <br> </p>To
                         </td>
                         <td class="titik">:</td>
-                        <td class="data">{{ date('d-M-Y', strtotime('+7 month'))}}</td>
+                        <td class="data">{{ strtoupper(date('d F Y', strtotime('+7 month'))) }}</td>
                     </tr>
 
                 </tbody>
             </table>
 
-            <div class="tanda-tangan">
+            <table class="tanda-tangan">
                 <tr>
-                    <td style="width:300px; padding:0">
+                    <td class="jenis" style=" padding:0">
                         <p id="indonesia"> <u>Dikeluargan</u> <br> </p>Issued in
                     </td>
                     <td class="titik">:</td>
-                    <td class="data">{{ $template->lokasi_cetak}}</td>
+                    <td class="data">{{ strtoupper( $template->lokasi_cetak) }}</td>
                 </tr>
 
                 <tr>
-                    <td style="width:300px; padding:0">
+                    <td class="jenis" style="">
+                        <p id="indonesia">Nama</p>
+                        <p>Name</p>
+                    </td>
+                    <td class="titik">:</td>
+                    <td class="data">{{ strtoupper($biodata->nama_lengkap_pendaftar) }}</td>
+                </tr>
+
+                
+                <tr>
+                    <td class="jenis" style=" padding:0">
                         <p id="indonesia"> <u>Pada Tanggal</u> <br> </p>On
                     </td>
                     <td class="titik">:</td>
-                    <td class="data">{{ date('d-F-Y')}}</td>
+                    <td class="data">{{ strtoupper( date('d F Y')) }}</td>
                 </tr>
-                <p class="center-text" style="text-transform: uppercase; padding-bottom: 200px;"><b>a.n {{ $template->judul_kiri_atas }}</b></p>
-                <p class="center-text"> <u><b>{{ $template->satuan_kepala }}</b></u> </p>
-                <p class="center-text"><b>{{ $template->jabatan }}</b></p>
-            </div>
+                <tr>
+                    <td><p class="text-center" style="text-transform: uppercase; padding-bottom: 200px;"><b>a.n {{ $template->judul_kiri_atas }}</b></p></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="text-center"> <u><b>{{ $template->satuan_kepala }}</b></u> </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="text-center"><b>{{ $template->jabatan }}</b></p>
+                    </td>
+                </tr>
+            </table>
 
         </div>
     </div>
@@ -280,7 +299,8 @@
     <script>
         $('#diprint').ready(function() {
             window.print();
-            window.close()
+            setTimeout(window.close, 0);
+
         });
     </script>
 </body>
