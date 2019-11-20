@@ -509,7 +509,7 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
                                             <label for="nama_lengkap_saudara">Nama Lengkap</label>
-                                            <input required required type="text" placeholder="Masukan Nama Lengkap saudara" class="form-control" name="nama_lengkap_saudara[]" id="nama_lengkap_saudara" value="{{ old('tempat_lahir_saudara') }}" >    
+                                            <input  type="text" placeholder="Masukan Nama Lengkap saudara" class="form-control" name="nama_lengkap_saudara[]" id="nama_lengkap_saudara" value="{{ old('tempat_lahir_saudara') }}" >    
                                         </div>
         
                                         
@@ -520,7 +520,7 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-3">
                                             <label for="agama_saudara">Agama</label>
-                                            <select required name="agama_saudara[]" id="agama_saudara" class="form-control">
+                                            <select  name="agama_saudara[]" id="agama_saudara" class="form-control">
                                                 <option value="">Pilih Agama</option>
                                                 <option value="Islam">Islam</option>
                                                 <option value="Kristen">Kristen</option>
@@ -534,47 +534,47 @@
         
                                         <div class="form-group col-md-7">
                                             <label for="pekerjaan_saudara">Pekerjaan</label>
-                                            <input required class="form-control" type="text" name="pekerjaan_saudara[]" value="{{ old('pekerjaan_saudara') }}" placeholder="Masukan Pekerjaan Anda">
+                                            <input  class="form-control" type="text" name="pekerjaan_saudara[]" value="{{ old('pekerjaan_saudara') }}" placeholder="Masukan Pekerjaan Anda">
                                         </div>
         
                                         <div class="form-group col-md-2">
                                             <label for="umur">Umur</label>
-                                            <input required type="text" placeholder="Umur saudara" class="form-control" name="umur_saudara[]" id="umur_saudara" value="{{ old('umur_saudara') }}" >    
+                                            <input  type="text" placeholder="Umur saudara" class="form-control" name="umur_saudara[]" id="umur_saudara" value="{{ old('umur_saudara') }}" >    
                                         </div>
                                     </div>
             
             
                                     <div class="form-group">
                                         <label for="provinsi_saudara">Provinsi (Sesuai KTP)</label>
-                                        <select required name="provinsi_saudara[]" id="provinsi_saudara" class="form-control">
+                                        <select  name="provinsi_saudara[]" id="provinsi_saudara" class="form-control">
                                             <option value="">Pilih Provinsi</option>
                                         </select>
                                     </div>
         
                                     <div class="form-group">
                                         <label for="kabupaten_saudara">Kabupaten (Sesuai KTP)</label>
-                                        <select required name="kabupaten_saudara[]" id="kabupaten_saudara" class="form-control">
+                                        <select  name="kabupaten_saudara[]" id="kabupaten_saudara" class="form-control">
                                             <option value="">Pilih Provinsi Dulu</option>
                                         </select>
                                     </div>
         
                                     <div class="form-group">
                                         <label for="kecamatan_saudara">Kecamatan (Sesuai KTP)</label>
-                                        <select required name="kecamatan_saudara[]" id="kecamatan_saudara" class="form-control">
+                                        <select  name="kecamatan_saudara[]" id="kecamatan_saudara" class="form-control">
                                             <option value="">Pilih Kabupaten Dulu</option>
                                         </select>
                                     </div>
         
                                     <div class="form-group">
                                         <label for="kelurahan_saudara">Kelurahan (Sesuai KTP)</label>
-                                        <select required name="kelurahan_saudara[]" id="kelurahan_saudara" class="form-control">
+                                        <select  name="kelurahan_saudara[]" id="kelurahan_saudara" class="form-control">
                                             <option value="">Pilih Kecamatan Dulu</option>
                                         </select>
                                     </div>
         
                                     <div class="form-group">
                                         <label for="alamat_saudara">Alamat Lengkap (Sesuai KTP)</label>
-                                        <textarea required class="form-control" name="alamat_saudara[]" id="alamat_saudara" cols="30" rows="6"></textarea>
+                                        <textarea  class="form-control" name="alamat_saudara[]" id="alamat_saudara" cols="30" rows="6"></textarea>
                                     </div>
                                 </div>
                                 <button type="button" id="addRow" class="btn btn-xs btn-alt-success mr-5 mb-5">

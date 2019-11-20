@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="{{ url('/') }}/assets/js/plugins/flatpickr/flatpickr.min.css">
 @endsection
 @section('main-content')
+   <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <!-- Validation Wizard Classic -->
@@ -963,6 +964,7 @@
             <!-- END Validation Wizard Classic -->
         </div>
     </div>
+   </div>
 
 @endsection
 
