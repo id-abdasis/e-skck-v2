@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.app-client');
+    return redirect('pendaftaran-skck');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
