@@ -18,6 +18,7 @@ use App\User;
 use Alert;
 use Auth;
 use Session;
+use Mail;
 
 use App\Template;
 use Illuminate\Support\Facades\Hash;
@@ -45,8 +46,9 @@ class SkckController extends Controller
         // dd($request->agama_pasangan);
         $pribadi = Pribadi::create($request->all());
         $pribadi_id = Pribadi::all()->pluck('id')->last();
+        $kode_unik = date('dmyhs');
         if ($pribadi) {
-            $request->request->add(['kode_unik' => date('dmyhs') ]);
+            $request->request->add(['kode_unik' => $kode_unik ]);
             $satwil = $pribadi->satwil()->create($request->all());
             $ayah = $pribadi->ayah()->create($request->all());
             $pasangan = $pribadi->pasangan()->create([
@@ -128,6 +130,20 @@ class SkckController extends Controller
 
             Alert::success('Berhasil', 'Pendaftaran Berhasil Di Lakukan');
             Session::flash('pendaftaran-sukses');
+            $data  = [
+                'nama' => $request->nama_lengkap_pendaftar,
+                'nik' => $request->nomor_identitas_pendaftar,
+                'kode_unik' =>$kode_unik
+            ];
+            $to_email = $request->email;
+            $to_nama = $request->nama_lengkap_pendaftar;
+
+            Mail::send('layouts.mail.mail', $data, function ($message) use ($to_email, $to_nama) {
+                $message->from('id.polrestegal@gmail.com', 'SKCK Priority Polres Tegal');
+                $message->sender('id.polrestegal@gmail.com', 'SKCK Priority Polres Tegal');
+                $message->to($to_email, $to_nama);
+                $message->subject('Data Pendaftaran SKCK Polres Tegal');
+            });
             return redirect()->route('pendaftaran-sukses');
         }else{
             return redirect()->back()->withInput();
@@ -196,9 +212,10 @@ class SkckController extends Controller
         $pribadi = Pribadi::find($request->id)->update($request->except(['_token']));
         $pribadi_biodata = Pribadi::find($request->id);
         $pribadi_id = $pribadi_biodata->id;
+        $kode_unik = date('dmyhs');
         // dd($pribadi_id)->first();
         if ($pribadi) {
-            $request->request->add(['kode_unik' => date('dmyhs') ]);
+            $request->request->add(['kode_unik' => $kode_unik ]);
             $satwil = Satwil::where('pribadi_id', $pribadi_id)->first()->fill($request->all())->save();
             $ayah = Ayah::where('pribadi_id', $pribadi_id)->first()->fill($request->all())->save();
             $pasangan = Pasangan::where('pribadi_id', $pribadi_id)->first()->update([
