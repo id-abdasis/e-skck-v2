@@ -603,7 +603,7 @@
                                     </div>
     
                                     <div class="form-group col-md-4">
-                                        <label for="nama_sekolah">Nama Sekoalh</label>
+                                        <label for="nama_sekolah">Nama Sekolah</label>
                                         <input required class=" form-control " maxlength="18" type="text" id="nama_sekolah" name="nama_sekolah" value="{{ old('nama_sekolah') }}" placeholder="Masukan Nama Sekolah" >
                                     </div>
     
