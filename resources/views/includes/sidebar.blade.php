@@ -11,7 +11,7 @@
 
             <!-- Logo -->
             <div class="content-header-item">
-                <a class="link-effect font-w700" href="index.html">
+                <a class="link-effect font-w700" href="#">
                     <span class="font-size-xl text-dual-primary-dark">SKCK </span><span class="font-size-xl text-primary">PRIORITY</span>
                 </a>
             </div>
